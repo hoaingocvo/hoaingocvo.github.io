@@ -89,7 +89,7 @@ h3 {
     width: 80%; /* Keeps the content width consistent */
     margin: 20px auto; /* Centers each space block */
     padding: 20px;
-    background-color: #f6f6f6; /* Optional background color */
+    background-color: #fafafa; /* Optional background color */
     border: 3px solid black; /* Adds a solid border */
     text-align: justify; /* Justify the text for readability */
 }
