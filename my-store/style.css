@@ -1,0 +1,364 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-image: url('cute.webp'); /* Replace 'your-cute-image.jpg' with the path to your image */
+    background-size: cover;
+    background-position: center;
+    color: #fff; /* Set text color to white or any suitable color for better contrast */
+    padding: 10px 20px;
+    text-align: center; /* Center align the text */
+}
+
+h1 {
+    margin: 0;
+    color: rgb(61, 60, 60);
+    font-weight: bold;
+}
+
+h2 {
+    margin: 0;
+    padding:10px;
+    font-weight: bold;
+}
+
+h3 {
+    color: red;
+    margin: 0;
+}
+.item p {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.logo-container {
+    margin-top: 10px; /* Adjust the spacing between the store name and logo */
+}
+
+.logo-container img {
+    width: 200px; /* Set the width of the logo */
+    height: auto; /* Let the height adjust automatically to maintain aspect ratio */
+}
+
+.menu-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Offscreen by default */
+    width: 300px;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 999;
+    transition: right 0.3s ease; /* Smooth transition */
+}
+
+.menu-content {
+    padding: 50px;
+    max-height: 480px; /* Set a maximum height for the menu content */
+    overflow-y: auto; /* Enable vertical scrolling */
+    }
+
+.menu-content a {
+    display: block;
+    padding: 25px;
+    padding-bottom: 50px;
+    margin: 0px;
+    color: #333;
+    text-decoration: none;
+    padding-bottom: 10px;
+}
+
+.menu-content.roll {
+    height: 100vh; /* Adjust height as needed */
+    overflow-y: scroll; /* Enable vertical scrolling */
+}
+
+.paragraph-box {
+    display: block; /* Hide paragraph boxes by default */
+    border: 3px solid #000; /* 1px black border */
+    padding: 10px; /* Adjust padding as needed */
+}
+
+
+.paragraph-box p {
+  color: #000;
+}
+
+.panel.active + .paragraph-box {
+    display: block; /* Show paragraph boxes when the panel is active */
+}
+
+.panel {
+    display: block; /* Hide panels by default */
+}
+
+.panel.active {
+    display: block; /* Show panels when active */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-bottom: 100px; /* Add some padding to the bottom */
+}
+
+.store-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns of equal width */
+    grid-gap: 20px; /* Spacing between grid items */
+}
+
+.item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.item img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.item button {
+    margin-top: 20px; /* Adjust the value as needed to add more space */
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.product-icon {
+    width: 50px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    margin-right: 10px; /* Adjust spacing between icon and text */
+}
+
+#cart-list {
+    padding-left: 25px; /* Add padding around the entire list */
+}
+
+#cart-list li {
+    margin-bottom: 20px; /* Add margin between each list item */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+}
+
+.remove {
+    margin-left: 20px; /* Add margin to the right of the remove button */
+}
+
+
+footer {
+    background-color: #fec97f;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000; /* Set a higher z-index value */
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#cart-popup {
+    position: fixed;
+    top: 50%; /* Position the popup vertically centered */
+    left: 50%; /* Position the popup horizontally centered */
+    transform: translate(-50%, -50%); /* Center the popup exactly */
+    max-width: 80%; /* Set a maximum width for the popup */
+    overflow: auto; /* Enable scrolling if the content exceeds the popup's dimensions */
+    z-index: 1000; /* Ensure the popup is displayed above other elements */
+}
+
+.popup-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#buy-now-btn-cart {
+    width: 100%;
+    background-color: #11aa06;
+    color: #fff;
+    border: none;
+    padding: 15px 20px; 
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); 
+}
+
+#buy-now-btn-cart:hover {
+    background-color: #8eb08a;
+}
+
+#checkout-section {
+    /* Your existing styles for the checkout section */
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 100%; /* Adjust width as needed */
+    margin: 0 auto;
+    display: none;
+}
+
+#checkout-form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#checkout-form input[type="text"],
+#checkout-form input[type="tel"],
+#checkout-form input[type="email"],
+#checkout-form textarea {
+    font-family: inherit; 
+}
+
+#checkout-form input,
+#checkout-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+#checkout-form button,
+#buy-now-btn-cart {
+    width: 100%;
+    background-color: #11aa06;
+    color: #fff;
+    border: none;
+    padding: 15px 20px; 
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); 
+    text-align: center; /* Center the text */
+}
+
+#checkout-form button:hover,
+#buy-now-btn-cart:hover {
+    background-color: #8eb08a;
+}
+
+#checkout-form button {
+    width: calc(100% - 30%); /* Adjust width to match the checkout section width */
+    padding: 15px 0; /* Center the text vertically */
+}
+
+@media screen and (max-width: 768px) {
+    .store-items {
+        grid-template-columns: repeat(2, 1fr); /* Adjust grid for smaller screens */
+    }
+}
+
+/* Style for individual product items */
+.item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.item img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+/* Style for the arrows */
+
+.arrows {
+    position: relative; /* Make sure the arrows container is relatively positioned */
+    width: 100%; /* Ensure the container takes up the full width */
+    align-items: center;
+}
+
+/* Style for individual arrow */
+.arrow {
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    position: absolute; /* Position arrows absolutely */
+}
+
+.arrow i {
+    font-size: 18px; /* Adjust the font size as needed */
+}
+
+/* Hover effect for arrows */
+.arrow:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Darken the background on hover */
+    transform: scale(1.1); /* Scale up the arrow on hover */
+}
+
+
+.left-arrow {
+    left: 10px; /* Position the left arrow at the left edge of the container */
+}
+
+.right-arrow {
+    right: 10px; /* Position the right arrow at the right edge of the container */
+}
+

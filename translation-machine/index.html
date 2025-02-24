@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano Light Painting</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+
+<header>
+    <h1>Hoai-vo Store</h1>
+    <div class="logo-container">
+        <img src="logo-noBG.PNG" alt="Your Logo">
+    </div>
+    <div class="menu-btn" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <div class="menu-overlay" id="menu-overlay">
+        <div class="menu-content">
+            <!-- About Us Section -->
+            <a href="#" id="about-me-btn" class="accordion">About Us</a>
+            <div id="about-me-panel" class="panel">
+                <div class="paragraph-box">
+                    <p>This store is owned by Hoai Ngoc Vo, a Viet content creator who specializes in ancient history and culture...</p>
+                </div>
+            </div>
+
+            <!-- Song List Dropdown -->
+            <a href="#" class="accordion">Performances</a>
+            <div class="panel">
+                <div class="song-dropdown">
+                    <a href="#" onclick="loadGallery('song1', 'Song 1', 'Composer 1', 'video1')">Song 1</a>
+                    <a href="#" onclick="loadGallery('song2', 'Song 2', 'Composer 2', 'video2')">Song 2</a>
+                    <a href="#" onclick="loadGallery('song3', 'Song 3', 'Composer 3', 'video3')">Song 3</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <main>
+        <!-- Song Title & Composer -->
+        <h1 id="song-title">Song 1</h1>
+        <h3 id="composer-name">Composer 1</h3>
+
+        <!-- Video Player -->
+        <div class="video-container">
+            <iframe id="video-frame" width="560" height="315" 
+                src="https://www.youtube.com/embed/video1" 
+                frameborder="0" allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Image Gallery -->
+        <div class="gallery" id="galleryContainer"></div>
+
+        <!-- Lightbox for Enlarged Images -->
+        <div id="lightbox">
+            <span class="close" onclick="closeLightbox()">&times;</span>
+            <img id="lightboxImage">
+            <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+            <span class="next" onclick="changeImage(1)">&#10095;</span>
+        </div>
+    </main>
+
+    <!-- Link JavaScript File -->
+    <script src="script.js" defer></script>
+</body>
+</html>

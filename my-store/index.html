@@ -1,54 +1,413 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
-        <title>Hoai's Homepage</title>
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Mrs+Sheppards&family=Quicksand:wght@300..700&family=Sacramento&family=The+Nautigal:wght@400;700&display=swap" rel="stylesheet">
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=League+Gothic&family=Mrs+Sheppards&family=Poiret+One&family=Quicksand:wght@300..700&family=Rozha+One&family=Sacramento&family=The+Nautigal:wght@400;700&display=swap" rel="stylesheet">
-
+        <meta charset="UTF-8">
+        <title>Hoai-vo's Store - Final</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
+        <link href="lightbox.css" rel="stylesheet" />
+        <script src="script.js"></script>
         <link rel="icon" type="image/png" href="favicon.png">
-    </head>
-
-    <body>
-
-        <div class="hoaititle">
-            <img src="texttest.png">
+    </head>    
+    
+<body>
+    <header>
+        <h1>Hoai-vo Store</h1>
+        <div class="logo-container">
+            <img src="logo-noBG.PNG" alt="Your Logo">
         </div>
-        
-        <p class="title">Hoai-vo</p>
-        <p>Welcome to my portfolio</p>
-        
-        <ul>
-            <li><a href="first-website/index.html">First Website</a></li>
-            <li><a href="passion/index.html">Passion Project</a></li>
-            <li><a href="passion-variation/index.html">Passion P3 - Variation</a></li>
-            <li><a href="reading-reflections/index.html">Reading Reflections</a></li>
-            <li><a href="structure/index.html">Structure Project</a></li>
-            <li><a href="screensaver/index.html">Screensaver Project</a></li>
-            <li><a href="accordion/index.html">Accordion Project</a></li>
-            <li><a href="control/index.html">Control Project</a></li>
-            <li><a href="final/index.html">Control Project</a></li>
+        <div class="menu-btn">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    </div>
 
-        </ul>
+<div class="menu-overlay">
+    <div class="menu-content">
+        <a href="#" id="about-me-btn" class="accordion">About Us</a>
+        <div id="about-me-panel" class="panel">
+            <div class="paragraph-box">
+                <p>This store owned by Hoai Ngoc Vo, a Viet content creator who speacialized in ancient history and culture. She is also the co-funder of a well-known research non-profit organization in Vietnam - Quintessence of Dai Viet or @daivietphonghoa.</p>
+            </div>
+        </div>        
+        <a href="#question-answer" class="accordion">Question and Answer</a>
+        <div class="panel">
+            <div class="paragraph-box">
+                <p><strong>How long is the shipping?</strong></p>
+                <p>Pre-order products shipped from Vietnam took 4 - 6 weeks. Instock products took under 1 week.</p>
+                <p><strong>How does the renting works?</strong></p>
+                <p>Rented products only available in person or in-state - Virginia. You will submit your ID in holds until the pick-up date.</p>
+                <p>Price for all rent items are fixed rate 30% of original price. Embroided products are 50% of original price. Damaged rented products are subject to 100% price paid.</p>
+                <p><strong>How does the payment works?</strong></p>
+                <p>After submiting your order and information, you will received an email or text messages with your order number. You will confirm the prices and items in your order before sending the payment to me through Zelle, Bank transfer or Paypal with your order number + name. You will receive a text confirm your payment and expected deliver date.</p>
+            </div>
+        </div>        
+    </div>
+</div>
 
-        <div class="grid-container">
-            <div class="item"><a href="first-website/index.html">First Website</a></div>
-            <div class="item"><a href="passion/index.html">Passion Project</a></div>
-            <div class="item"><a href="passion-variation/index.html">Passion P3 - Variation</a></div>  
-            <div class="item"><a href="reading-reflections/index.html">Reading Reflections</a></div>
-            <div class="item"><a href="structure/index.html">Structure Project</a></li></div>
-            <div class="item"><a href="screensaver/index.html">Screensaver Project</a></li></div>
-            <div class="item"><a href="accordion/index.html">Accordion Project</a></li></div>
-            <div class="item"><a href="control/index.html">Control Project</a></li></div>
-            <div class="item"><a href="final/index.html">Final Project</a></li></div>
+    </header>
+    
+    <div class="container">
+        <div class="store-items">
+            <div class="item">
+
+                <div class="image-container">
+
+                    <a href="product1-image1.JPG" data-lightbox="product1">
+                        <img src="product1-image1.JPG" alt="Product 1">
+                    </a>
+                    <a href="product1-image2.JPG" data-lightbox="product1">
+                        <img src="product1-image2.JPG" alt="Product 1">
+                    </a>
+                    <a href="product1-image3.JPG" data-lightbox="product1">
+                        <img src="product1-image3.JPG" alt="Product 1">
+                    </a>
+                    <a href="product1-image4.JPG" data-lightbox="product1">
+                        <img src="product1-image4.JPG" alt="Product 1">
+                    </a>
+                </div>
+
+                <div class="arrows">
+                    <span class="arrow left-arrow">&lt;</span>
+                    <span class="arrow right-arrow">&gt;</span>
+                </div>            
+                <h2>Product 1</h2>
+                <h3>90$</h3>
+                <p>Red brocade mordernized Ao Dai</p>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="item">
+                <div class="image-container">
+
+                    <a href="product2-image1.jpg" data-lightbox="product2">
+                        <img src="product2-image1.jpg" alt="Product 2">
+                    </a>
+
+                    <a href="product2-image2.jpg" data-lightbox="product2">
+                        <img src="product2-image2.jpg" alt="Product 2">
+                    </a>
+
+                    <a href="product2-image3.jpg" data-lightbox="product2">
+                        <img src="product2-image3.jpg" alt="Product 2">
+                    </a>
+
+                    <a href="product2-image4.jpg" data-lightbox="product2">
+                        <img src="product2-image4.jpg" alt="Product 2">
+                    </a>
+                </div>
+            
+                <div class="arrows">
+                    <span class="arrow left-arrow">&lt;</span>
+                    <span class="arrow right-arrow">&gt;</span>
+                </div>
+                <h2>Product 2</h2>
+                <h3>142$</h3>
+                <p>Ly & Tran pastel green Ao Tu Dien with brocade inner layer, brown skirt included</p>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="item">
+                <div class="image-container">
+
+                    <a href="product3-image1.JPG" data-lightbox="product3">
+                        <img src="product3-image1.JPG" alt="Product 3">
+                    </a>
+
+                    <a href="product3-image2.JPG" 
+                    data-lightbox="product3">
+                        <img src="product3-image2.JPG" alt="Product 3">
+                    </a>
+
+                    <a href="product3-image3.JPG" data-lightbox="product3">
+                        <img src="product3-image3.JPG" alt="Product 3">
+                    </a>
+
+                    <a href="product3-image4.JPEG" data-lightbox="product3">
+                        <img src="product3-image4.JPEG" alt="Product 3">
+                    </a>
+                </div>
+            
+                <div class="arrows">
+                    <span class="arrow left-arrow">&lt;</span>
+                    <span class="arrow right-arrow">&gt;</span>
+                </div>
+                <h2>Product 3</h2>
+                <h3>165$</h3>
+                <p>Wine red Ao Tac - 5 laps stand-collar big sleeve, with a court-lady fake-pleated patterns printed skirt</p>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="item">
+                <div class="image-container">
+                    <a href="product4-image1.JPG" data-lightbox=“product4”>
+                        <img src="product4-image1.JPG" alt="Product 4">
+                    </a>
+
+                    <a href="product4-image2.JPG" data-lightbox=“product4”>
+                        <img src="product4-image2.JPG" alt="Product 4">
+                    </a>
+
+                    <a href="product4-image3.JPG" data-lightbox=“product4”>
+                        <img src="product4-image3.JPG" alt="Product 4">
+                    </a>
+
+                    <a href="product4-image4.JPG" data-lightbox=“product4”>
+                        <img src="product4-image4.JPG" alt="Product 4">
+                    </a>
+                </div>
+            
+                <div class="arrows">
+                    <span class="arrow left-arrow">&lt;</span>
+                    <span class="arrow right-arrow">&gt;</span>
+                </div>
+                <h2>Product 4</h2>
+                <h3>245$</h3>
+                <p>Green floral Ao Vien Linh of Tran & Ly dynasty, with inner Islamic tiles seamless weaved patterns</p>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="item">
+                <div class="image-container">
+
+                    <a href="product5-image1.jpg" data-lightbox=“product5”>
+                        <img src="product5-image1.jpg" alt="Product 5">
+                    </a>
+
+                    <a href="product5-image2.JPEG" data-lightbox=“product5”>
+                        <img src="product5-image2.JPEG" alt="Product 5">
+                    </a>
+
+                    <a href="product5-image3.JPEG" data-lightbox=“product5”>
+                        <img src="product5-image3.JPEG" alt="Product 5">
+                    </a>
+
+                    <a href="product5-image4.JPG" data-lightbox=“product5”>
+                        <img src="product5-image4.JPG" alt="Product 5">
+                    </a>
+                </div>
+            
+                <div class="arrows">
+                    <span class="arrow left-arrow">&lt;</span>
+                    <span class="arrow right-arrow">&gt;</span>
+                </div>
+                <h2>Product 5</h2>
+                <h3>378$</h3>
+                <p>Full set reconstruction upper class Later Le dynasty woman, based on statue of Thach Quy family Tu Khoan</p>
+                <button>Add to Cart</button>
+            </div>
+            
+
+            <div class="item">
+                <div class="image-container">
+
+                    <a href="product6-image1.JPG" data-lightbox=“product6”>
+                        <img src="product6-image1.JPG" alt="Product 6">
+                    </a>
+
+                    <a href="product6-image2.JPG" data-lightbox=“product6”>
+                        <img src="product6-image2.JPG" alt="Product 6">
+                    </a>
+                </div>
+            
+                <div class="arrows">
+                    <span class="arrow left-arrow">&lt;</span>
+                    <span class="arrow right-arrow">&gt;</span>
+                </div>
+                <h2>Product 6</h2>
+                <h3>155$</h3>
+                <p>Purple weaved patterns of string flowers, stand collar five laps robe with small sleeves</p>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="item">
+                <div class="image-container">
+
+
+                    <a href="product7-image1.JPG" data-lightbox=“product7”>
+                        <img src="product7-image1.JPG" alt="Product 7">
+                    </a>
+                    
+                    <a href="product7-image2.JPG" data-lightbox=“product7”>
+                        <img src="product7-image2.JPG" alt="Product 7">
+                    </a>
+
+                    <a href="product7-image3.JPG" data-lightbox=“product7”>
+                        <img src="product7-image3.JPG" alt="Product 7">
+                    </a>
+                </div>
+            
+                <div class="arrows">
+                    <span class="arrow left-arrow">&lt;</span>
+                    <span class="arrow right-arrow">&gt;</span>
+                </div>
+                <h2>Product 7</h2>
+                <h3>162$</h3>
+                <p>Red Ao Tu Dien of Ly & Tran dynasty with gold weaved string flowers collar border</p>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="item">
+                <div class="image-container">
+
+                <a href="product8-image1.JPG" data-lightbox=“product8”>
+                    <img src="product8-image1.JPG" alt="Product 8">
+                </a>
+
+                <a href="product8-image2.PNG" data-lightbox=“product8”>
+                    <img src="product8-image2.PNG" alt="Product 8">
+                </a>
+
+                <a href="product8-image3.PNG" data-lightbox=“product8”>
+                    <img src="product8-image3.PNG" alt="Product 8">
+                </a>
+                </div>
+            
+                <div class="arrows">
+                    <span class="arrow left-arrow">&lt;</span>
+                    <span class="arrow right-arrow">&gt;</span>
+                </div>
+                <h2>Product 8</h2>
+                <h3>205$</h3>
+                <p>Beige stand-collar Ao Tac big sleeves, butterfly embroidery, with 5 color tripes decoration</p>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="item">
+                <div class="image-container">
+
+                    <a href="product9-image1.JPG" data-lightbox=“product9”>
+                        <img src="product9-image1.JPG" alt="Product 9">
+                    </a>
+
+                    <a href="product9-image2.JPG" data-lightbox=“product9”>
+                        <img src="product9-image2.JPG" alt="Product 9">
+                    </a>
+
+                    <a href="product9-image3.JPG" data-lightbox=“product9”>
+                        <img src="product9-image3.JPG" alt="Product 9">
+                    </a>
+                </div>
+            
+                <div class="arrows">
+                    <span class="arrow left-arrow">&lt;</span>
+                    <span class="arrow right-arrow">&gt;</span>
+                </div>
+                <h2>Product 9</h2>
+                <h3>60$</h3>
+                <p>Black Ly & Tran dynasty Ao Vien Linh, round collar top with skirt</p>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="item">
+                <div class="image-container">
+
+                    <a href="product10-image1.JPG" data-lightbox=“product10”>
+                        <img src="product10-image1.JPG" alt="Product 10">
+                    </a>
+
+                    <a href="product10-image2.JPG" data-lightbox=“product10”>
+                        <img src="product10-image2.JPG" alt="Product 10">
+                    </a>
+
+                    <a href="product10-image3.JPG" data-lightbox=“product10”>
+                        <img src="product10-image3.JPG" alt="Product 10">
+                    </a>
+                </div>
+            
+                <div class="arrows">
+                    <span class="arrow left-arrow">&lt;</span>
+                    <span class="arrow right-arrow">&gt;</span>
+                </div>
+                <h2>Product 10</h2>
+                <h3>262$</h3>
+                <p>Set reconstruction upper class Later Le dynasty woman, based on statue of Thach Quy family Tu Khoan, without the pink floral and black floral coat</p>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="item">
+                <div class="image-container">
+
+                    <a href="product11-image1.jpg" data-lightbox=“product11”>
+                        <img src="product11-image1.jpg" alt="Product 11">
+                    </a>
+
+                    <a href="product11-image2.jpg" data-lightbox=“product11”>
+                        <img src="product11-image2.jpg" alt="Product 11">
+                    </a>
+                </div>
+            
+                <div class="arrows">
+                    <span class="arrow left-arrow">&lt;</span>
+                    <span class="arrow right-arrow">&gt;</span>
+                </div>
+                <h2>Product 11</h2>
+                <h3>30$</h3>
+                <p>Black hoodie with Vietnam map embroider at the back</p>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="item">
+                <div class="image-container">
+
+                    <a href="product12-image1.JPG" data-lightbox=“product12”>
+                        <img src="product12-image1.JPG" alt="Product 12">
+                    </a>
+
+                    <a href="product12-image2.JPG" data-lightbox=“product12”>
+                        <img src="product12-image2.JPG" alt="Product 12">
+                    </a>
+
+                    <a href="product12-image3.JPG" data-lightbox=“product12”>
+                        <img src="product12-image3.JPG" alt="Product 12">
+                    </a>
+                </div>
+            
+                <div class="arrows">
+                    <span class="arrow left-arrow">&lt;</span>
+                    <span class="arrow right-arrow">&gt;</span>
+                </div>
+                <h2>Product 12</h2>
+                <h3>64$</h3>
+                <p>Light orange linen stand-collar small sleeves with 5 laps robe</p>
+                <button>Add to Cart</button>
+            </div>
+
+            <!-- Add more products -->
         </div>
+    </div>
 
-        <p>&copy; 2024 Hoai Ngoc Vo 2024</p>
-    </body>
+    <div id="cart-popup" class="popup">
+        <div class="popup-content">
+            <span id="cart-close" class="close">&times;</span>
+            <h2>Your Cart (<span id="cart-count">0</span>)</h2>
+            <ul id="cart-list"></ul>
+            <button id="buy-now-btn-cart">Buy Now</button>
+        </div>
+    </div>    
+    
+    <div id="checkout-section" class="popup">
+        <div class="popup-content">
+            <span id="checkout-close" class="close">&times;</span>
+            <h2>Checkout</h2>
+            <form id="checkout-form">
+                <input type="text" id="name" name="name" placeholder="Name" required>
+                <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                <textarea id="email" name="email" placeholder="Email" required></textarea>
+                <textarea id="address" name="address" placeholder="Shipping Address" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Hoai-vo Store</p>
+    </footer>
+    
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <script src="script.js"></script>
+    <script src="lightbox.js"></script>
+
+ </body>
 </html>

@@ -1,0 +1,111 @@
+*{
+    box-sizing:border-box;
+}
+
+body {
+    margin:0px;
+    padding:0px;
+    background-repeat: no-repeat;
+    background-image: url(monet.jpg);
+    background-size: 1500px 1000px;
+    background-attachment: fixed;
+    position:absolute;
+    padding-bottom: 120px;
+    }
+.hoaititle {
+    display: flex;
+}
+
+img {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    object-fit: cover;
+    display: flex;
+}
+    
+p {
+    color:white;
+    font-size:16px;
+    padding: 30px;
+    margin: 0px;
+    font-family: 'Times New Roman', Times, serif;
+}
+    
+.title {
+   font-size: 40px;
+    box-sizing: content-box;  
+    font-family: "The Nautigal", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(255, 213, 235);
+    text-decoration:underline;
+    padding:0px;
+    margin:0px;
+    display: flex; 
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+ul {
+    padding:30px;
+    margin:0px;
+    font-family: 'Times New Roman', Times, serif;
+    padding-bottom: 60px;
+}
+
+.grid-container {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    height: auto;
+    grid: 100px / auto auto;
+    background-image: linear-gradient(to top, rgb(255, 111, 0), rgb(255, 110, 161));
+    margin-top: 100px;
+    padding: 45px;
+    gap: 45px;
+    align-items: center;
+    align-content: center;
+    animation: box 11s alternate 2s infinite;
+}
+  
+.item {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 55px;
+    padding-bottom: 55px;
+    font-size: 26px;
+    align-items: center;
+    align-content: center;
+    font-family: "League Gothic", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    justify-content: space-evenly;
+}
+
+@keyframes box {
+    0% {
+        opacity: 100%;
+        background-image: linear-gradient(to top, rgb(255, 111, 0), rgb(255, 110, 161));    }
+
+    65% {
+        opacity: 100%;
+        background-image: linear-gradient(to top, rgb(255, 111, 0), rgb(255, 110, 161));    }    
+
+    80% {
+        opacity: 20%;
+        background-image: linear-gradient(to top, rgb(255, 111, 0), rgb(144, 93, 111));
+    }
+
+    100% {
+        opacity: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        background-image: linear-gradient(to top, rgb(255, 111, 0), rgb(247, 212, 225));
+
+    }
+}
