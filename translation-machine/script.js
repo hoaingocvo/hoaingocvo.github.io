@@ -26,6 +26,13 @@ document.addEventListener("DOMContentLoaded", function() {
             videoID: 'videoID2',
             images: ['images/song2-image1.jpg', 'images/song2-image2.jpg'],
         },
+        {
+            songID: 'song3',
+            songTitle: 'Song Title 2',
+            composerName: 'Composer 2',
+            videoID: 'videoID2',
+            images: ['images/song2-image1.jpg', 'images/song2-image2.jpg'],
+        },
 
     ];
 
@@ -45,6 +52,15 @@ document.addEventListener("DOMContentLoaded", function() {
         introPage.style.display = "flex"; // Ensure intro page is visible
         introPage.style.opacity = "1"; // Set opacity to 1
     });
+
+    // Get references to the close button and the gallery container
+
+// Add an event listener to the close button
+closeButton.addEventListener('click', function() {
+    // Hide the gallery container when the close button is clicked
+    galleryContainer.style.display = 'none';
+});
+
 
     // Dynamically load gallery when a song is clicked
     songList.addEventListener("click", function(e) {
@@ -161,10 +177,32 @@ function loadGallery(songID, songTitle, composerName, videoID, images) {
 }
 
 
-// Toggle the visibility of the sheet music list
+// Toggle the visibility of the sheet music list (composer buttons section)
 const toggleSheetMusic = document.getElementById("toggleSheetMusic");
+const composerButtons = document.getElementById("composerButtons");
 const sheetMusicList = document.getElementById("sheetMusicList");
 
 toggleSheetMusic.addEventListener("click", function() {
-    sheetMusicList.classList.toggle("active");
+    // Toggle visibility of composer buttons
+    composerButtons.style.display = composerButtons.style.display === "none" ? "block" : "none";
+    sheetMusicList.style.display = "block"; // Ensure sheet music list is shown when toggle button is clicked
 });
+
+// Show sheet music list for a specific composer when their button is clicked
+const composerBtns = document.querySelectorAll(".composer-btn");
+composerBtns.forEach(btn => {
+    btn.addEventListener("click", function() {
+        const composerName = btn.getAttribute("data-composer");
+        
+        // Hide all composer lists
+        const allLists = document.querySelectorAll(".composer-sheet-list");
+        allLists.forEach(list => list.style.display = "none");
+        
+        // Show the selected composer's sheet list
+        const selectedList = document.getElementById(composerName);
+        if (selectedList) {
+            selectedList.style.display = "block";
+        }
+    });
+});
+

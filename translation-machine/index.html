@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piano Light Painting</title>
     <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="lightbox.css">
     <script src="lightbox-plus-jquery.js"></script>
@@ -27,8 +28,11 @@
     </div>
 
     <div id="intro" class="intro">
-        <h2>Welcome Back!</h2>
-        <p>Explore beautiful piano performances and sheet music.</p>
+        <h1>Welcome to the Hoai Ngoc Vo Website!</h1>
+        <p>Discover a unique blend of <span class="emoji">🎹✨</span></p>
+        <p><strong>Piano Sheets Library</strong> - Explore our curated collection of piano sheet music, perfect for musicians of all levels. From timeless classics to modern compositions, find your next musical masterpiece and elevate your skills.</p>
+        <p><strong>Light Painting Performances</strong> - Experience the magic of <span class="emoji">🎨</span> light painting in motion. Watch as sound and light come together to create stunning visual performances that are as captivating as the music itself.</p>
+        <p>Join us on a creative journey where music and art unite. Whether you’re looking for sheet music or an immersive performance, there's something here for every creative soul.</p>
     </div>
 
     <!-- Song List Dropdown -->
@@ -65,21 +69,49 @@
 
     <!-- Toggleable Sheet Music List -->
     <button id="toggleSheetMusic" class="cute-sheet-music-btn">🎵 Download Other Sheet Music 🎀</button>
+
     
-    <div id="sheetMusicList" class="sheet-music-panel">
+    <!-- <div id="sheetMusicList" class="sheet-music-panel">
         <ul>
             <li><a href="sheets/song1.pdf" download>Song Title 1 - Composer 1</a></li>
             <li><a href="sheets/song2.pdf" download>Song Title 2 - Composer 2</a></li>
             <li><a href="sheets/song3.pdf" download>Song Title 3 - Composer 3</a></li>
             <li><a href="sheets/song4.pdf" download>Song Title 4 - Composer 4</a></li>
         </ul>
+    </div> -->
+    
+    <div id="composerButtons" class="composer-buttons" style="display: none;">
+        <button class="composer-btn" data-composer="Beethoven">Beethoven</button>
+        <button class="composer-btn" data-composer="Mozart">Mozart</button>
+        <button class="composer-btn" data-composer="Vladimir Stezers">Vladimir Stezers</button>
     </div>
     
+    <!-- Sheet Music List (Initially Hidden) -->
+    <div id="sheetMusicList" class="sheet-music-panel" style="display: none;">
+        <div id="Beethoven" class="composer-sheet-list" style="display: none;">
+            <ul>
+                <li><a href="sheets/beethoven_song1.pdf" download>Song Title 1 - Beethoven</a></li>
+                <li><a href="sheets/beethoven_song2.pdf" download>Song Title 2 - Beethoven</a></li>
+            </ul>
+        </div>
+        <div id="Mozart" class="composer-sheet-list" style="display: none;">
+            <ul>
+                <li><a href="sheets/mozart_song1.pdf" download>Song Title 1 - Mozart</a></li>
+                <li><a href="sheets/mozart_song2.pdf" download>Song Title 2 - Mozart</a></li>
+            </ul>
+        </div>
+        <div id="Vladimir Stezers" class="composer-sheet-list" style="display: none;">
+            <ul>
+                <li><a href="sheets/vladimir_song1.pdf" download>Song Title 1 - Vladimir Stezers</a></li>
+                <li><a href="sheets/vladimir_song2.pdf" download>Song Title 2 - Vladimir Stezers</a></li>
+            </ul>
+        </div>
+    </div>
     <!-- Space -->
     <div class="space"></div>
 
     <footer>
-        <p>&copy; 2024 Your Piano Website</p>
+        <p>&copy; 2024 Hoai Piano Website</p>
     </footer>
 
     <script src="script.js" defer></script>

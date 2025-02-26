@@ -12,6 +12,12 @@ body {
     box-sizing: border-box; /* Prevents padding from affecting width */
 }
 
+.unifrakturcook-bold {
+    font-family: "UnifrakturCook", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
 header {
     background-color: #333;
     color: white;
@@ -66,6 +72,44 @@ header .header-content h1 {
 .intro.show {
     display: flex;
     height: auto;
+}
+
+/* Intro Container */
+#intro {
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background to make text pop */
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px; /* Limiting width for readability */
+    margin: 20px auto; /* Centered horizontally */
+    text-align: center; /* Center text */
+    font-family: 'Arial', sans-serif; /* Choose a clean font */
+    line-height: 1.6; /* Spacing between lines for readability */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+}
+
+/* Title Styling */
+#intro h2 {
+    font-family: "UnifrakturCook", serif;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px; /* Space between title and text */
+    color: #ffb6c1; /* Light pink for a soft touch */
+}
+
+/* Paragraph Styling */
+#intro p {
+    font-size: 18px;
+    margin-bottom: 20px; /* Space between paragraphs */
+    max-width: 90%; /* Prevent text from stretching too much */
+    margin-left: auto; /* Center-align paragraphs */
+    margin-right: auto; /* Center-align paragraphs */
+}
+
+/* Optional: Add some space between each block for a more structured look */
+#intro p + p {
+    margin-top: 10px;
 }
 
 #closeButton {
@@ -143,7 +187,7 @@ header .header-content h1 {
 
 /* Button Styling */
 .cute-btn {
-    padding: 12px 28px;
+    padding-top: 0px;
     background-color: #ff99cc;
     color: white;
     font-size: 18px;
@@ -271,8 +315,6 @@ width: 100%;
     transform: scale(1.1);
 }
 
-
-
 .sheet-music-main {
     display: flex;
     justify-content: center;
@@ -323,13 +365,53 @@ width: 100%;
 .cute-sheet-music-btn:active {
     transform: scale(0.95); /* Slight shrink effect */
 }
-
-/* Hidden Panel (Initially Closed) */
-.sheet-music-panel {
-    display: none;
+/* Style for the active sheet music panel */
+.sheet-music-panel.active {
+    width: 100%;    
+    margin: 0 auto; /* Center the panel horizontally */
+    display: flex;
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
+    text-align: center; /* Ensure text is centered */
+    background-size: cover; /* Ensure the background covers the entire area */
+    background-position: center; /* Center background image */
+    padding: 20px; /* Padding for spacing around the content */
+    margin-top: 50px; /* Spacing from the top of the page */
+    background-color: rgba(0, 0, 0, 0.5); /* Dark background with transparency */
+    opacity: 1; /* Full opacity for visibility */
+    transition: opacity 0.3s ease-in-out; /* Smooth opacity transition */
 }
 
-.sheet-music-panel.active {
+/* Container for the composer buttons */
+.composer-buttons-container {
+    display: grid; /* Using grid layout */
+    grid-template-columns: repeat(3, 1fr); /* 3 buttons per row */
+    gap: 20px; /* Add spacing between buttons */
+    padding: 20px;
+    width: 100%; /* Full width for container */
+    text-align: center; /* Center text inside buttons */
+}
+
+/* Style for each composer button */
+.composer-buttons {
+    font-size: 18px; /* Increase font size */
+    padding: 15px 25px; /* Add padding for larger buttons */
+    background-color: #5f5f5f; /* Dark background color */
+    color: white; /* White text color */
+    border: none;
+    border-radius: 10px; /* Rounded corners for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center; /* Center the text in the button */
+}
+
+/* Hover effect for composer buttons */
+.composer-buttons:hover {
+    background-color: #ff839e; /* Change button background color on hover */
+    transform: translateY(-5px); /* Slightly lift the button on hover */
+}
+
+.composer-sheet-list {
     max-width: 50%; /* Or whatever fits your design */
     margin: 0 auto; /* Ensures centering in case of layout issues */
     display: flex;
@@ -339,46 +421,55 @@ width: 100%;
     background-size: cover;
     background-position: center;
     padding: 20px;
+    margin-top: 50px;
     background-color: rgba(0, 0, 0, 0.5); /* Background color with 70% opacity */
     opacity: 1; /* Full opacity for the text and other elements */
 }
 
-/* Ensure the list itself is centered */
-
+/* Style for the sheet music list inside the panel */
 .sheet-music-panel ul {
-    list-style: none;
+    list-style: none; /* Remove bullets from list */
     padding: 0;
     margin: 0;
-    width: 100%; /* Make sure it spans the container */
+    width: 100%; /* Ensure the list spans the container */
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Center list items */
-    text-align: center;
+    align-items: center; /* Vertically center content */
+    text-align: center; /* Ensure text is centered */
+    background-size: cover; /* Ensure the background covers the entire area */
+    background-position: center; /* Center background image */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center list items horizontally */
 }
 
+/* Style for each individual list item (song) */
 .sheet-music-panel li {
-    width: 100%;       /* ensures each list item takes full available width */
-    text-align: center; /* centers text within each list item */
-    opacity: 100%;
+    width: 100%; /* List item spans full width */
+    text-align: center; /* Center text within the item */
+    opacity: 1; /* Full opacity for items */
 }
 
+/* Style for the links to sheet music */
 .sheet-music-panel a {
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 16px;
-    padding: 10px 15px; /* Adds padding for better hover effect */
-    display: block;
-    transition: background 0.8s ease-in-out; /* Smooth transition */
-    border-radius: 5px; /* Optional rounded corners */
+    text-decoration: none; /* Remove underline from links */
+    color: #ffffff; /* White text color */
+    font-size: 16px; /* Font size */
+    padding: 10px 15px; /* Padding for the link */
+    display: block; /* Ensure each link takes a full block */
+    transition: background 0.8s ease-in-out; /* Smooth transition for hover effect */
+    border-radius: 5px; /* Optional rounded corners for the link */
+    margin: 5px 0; /* Spacing between list items */
 }
 
+/* Hover effect for the sheet music links */
 .sheet-music-panel a:hover {
-    color: #ff839e; /* Change text color for better contrast */
-    font-weight: bold;
+    color: #ff839e; /* Change text color on hover */
+    font-weight: bold; /* Make the text bold */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow for effect */
 }
 
 footer {
-    color: #fff;
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
     text-align: center;
     padding: 10px 0;
     position: fixed;
