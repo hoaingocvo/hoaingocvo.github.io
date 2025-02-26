@@ -1,0 +1,388 @@
+/* Basic styles for the page */
+body {
+    font-family: Arial, sans-serif;
+    background: url('bg3.jpeg') repeat-y center top; /* Allows vertical scrolling */
+    background-size: cover; /* Ensures full width without distortion */
+    background-attachment: fixed; /* Keeps background in place while scrolling */
+    padding:0px;
+    margin: 0px;
+    width: 100%;
+    min-height: 100vh; /* Ensures the body is at least the height of the viewport */
+    height: 100vh; /* Ensure the background image takes up the full height */
+    box-sizing: border-box; /* Prevents padding from affecting width */
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header .header-content h1 {
+    margin: 0;
+}
+
+.logo-container img {
+    max-width: 100px;
+    display: block;
+    margin: 20px auto;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    margin-bottom: 10px;
+}
+
+.performances-btn, .close-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Initially hide the intro page */
+.intro {
+    display: none; /* Hidden initially */
+    flex-grow: 0; /* Prevents intro from growing too large */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url('cute-background.jpg') no-repeat center center;
+    background-size: cover;
+    color: rgb(0, 0, 0);
+    font-family: 'Arial', sans-serif;
+    padding: 0px;
+    border-radius: 20px;
+    width: 100%; /* Ensure intro takes full width */
+    height: auto; /* Adjust height automatically */
+    margin-top: 20px; /* Space between header and intro */
+    max-height: 80vh; /* Limit height to not stretch too much */
+}
+
+.intro.show {
+    display: flex;
+    height: auto;
+}
+
+#closeButton {
+    position: relative;
+    z-index: 20; /* Ensures it's above the intro screen */
+    cursor: pointer; /* Ensures it's clickable */
+}
+
+/* Initially hide the song list */
+#songList {
+    display: none;
+}
+
+/* Show the song list when the "active" class is added */
+#songList.active {
+    display: block;
+}
+
+/* Style for the dropdown list */
+.panel {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-size: contain;
+}
+
+.panel ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.panel li {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.panel li:hover {
+    background-color: #ddd;
+}
+
+
+/* Initially Hide Main Content */
+.hidden-content {
+    display: none;
+}
+
+/* Intro Page Styles */
+.intro-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('your-gif-url.gif') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* Intro Content Styling */
+.intro-content {
+    text-align: center;
+    color: white;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    animation: floatIn 2s ease-out;
+}
+
+/* Button Styling */
+.cute-btn {
+    padding: 12px 28px;
+    background-color: #ff99cc;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+}
+
+/* Button Hover Effect */
+.cute-btn:hover {
+    background-color: #ff66b2;
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5);
+}
+
+/* Animation for Text */
+@keyframes floatIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hide content initially */
+#mainContent {
+    display: none;
+}
+
+.sheet-music-panel {
+    display: none;
+}
+
+/* Song Info */
+#song-info {
+    margin-top: 20px;
+    text-align: center;
+    background-size: contain;
+}
+
+#song-title {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+#composer-name {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Center the video container */
+#video-frame-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#video-frame-container iframe {
+    width: 80%;  /* Adjust the width as needed (percentage or fixed pixel value) */
+    height: 500px; /* Adjust the height to suit your preference */
+}
+
+.space {
+height: 200px;
+width: 100%;
+}
+
+.space1 {
+    height: 100px;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+/* Gallery styling for the main gallery section */
+/* Ensure PDF button is visible by default */
+#pdfDownloadButton {
+    display: none; /* Start as hidden */
+}
+
+/* Show it when a song is selected and gallery is displayed */
+#song-info, #pdfDownloadButton {
+    display: block;
+}
+
+
+/* Ensure the gallery container is a 2x2 grid */
+.gallery-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr); /* Exactly 2 columns */
+    grid-template-rows: repeat(2, auto); /* Exactly 2 rows */
+    gap: 15px; /* Space between images */
+    justify-items: center; /* Centers items inside their grid cells */
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px 20px;
+}
+
+
+/* Each image wrapper */
+.gallery-container a {
+    display: block;
+    width: 100%; /* Make sure it fills the grid cell */
+    overflow: hidden;
+}
+
+/* Ensuring images scale properly */
+.gallery-container img {
+    width: 100%; /* Ensures image fills its parent */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover; /* Prevents stretching */
+    border-radius: 8px; /* Optional */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.gallery-container a:hover img {
+    transform: scale(1.1);
+}
+
+
+
+.sheet-music-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pdf-download {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.pdf-download:hover {
+    background-color: #45a049;
+}
+
+/* Cute Big Button for Sheet Music */
+.cute-sheet-music-btn {
+    display: block;
+    text-align: center;
+    margin: 25px auto;
+    padding: 18px 28px; /* Bigger size */
+    font-size: 20px; /* Bigger text */
+    font-weight: bold;
+    background: linear-gradient(135deg, #ffb6c1, #ff69b4); /* Soft pink gradient */
+    color: white;
+    border: none;
+    border-radius: 50px; /* Extra rounded */
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3); /* Soft glow */
+    transition: all 0.3s ease, transform 0.2s ease-in-out;
+}
+
+/* Hover Effect: Slight Bounce & Glow */
+.cute-sheet-music-btn:hover {
+    background: linear-gradient(135deg, #ff69b4, #ff1493); /* Darker pink when hovered */
+    transform: scale(1.1); /* Slight bounce */
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5);
+}
+
+/* Click Effect: Press Down */
+.cute-sheet-music-btn:active {
+    transform: scale(0.95); /* Slight shrink effect */
+}
+
+/* Hidden Panel (Initially Closed) */
+.sheet-music-panel {
+    display: none;
+}
+
+.sheet-music-panel.active {
+    max-width: 50%; /* Or whatever fits your design */
+    margin: 0 auto; /* Ensures centering in case of layout issues */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically if necessary */
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Background color with 70% opacity */
+    opacity: 1; /* Full opacity for the text and other elements */
+}
+
+/* Ensure the list itself is centered */
+
+.sheet-music-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Make sure it spans the container */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center list items */
+    text-align: center;
+}
+
+.sheet-music-panel li {
+    width: 100%;       /* ensures each list item takes full available width */
+    text-align: center; /* centers text within each list item */
+    opacity: 100%;
+}
+
+.sheet-music-panel a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 10px 15px; /* Adds padding for better hover effect */
+    display: block;
+    transition: background 0.8s ease-in-out; /* Smooth transition */
+    border-radius: 5px; /* Optional rounded corners */
+}
+
+.sheet-music-panel a:hover {
+    color: #ff839e; /* Change text color for better contrast */
+    font-weight: bold;
+}
+
+footer {
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000; /* Set a higher z-index value */
+}
