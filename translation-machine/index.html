@@ -53,22 +53,21 @@
     </div>
 
     <!-- Song Info -->
-    <div id="song-info">
+    <div id="song-info" style="display:none">
         <h1 id="song-title">Song Title</h1>
         <p id="composer-name">Composer Name</p>  
     </div>
 
     <div id="video-frame-container"></div>
 
-    <div id="galleryContainer" class="gallery-container"></div> <!-- This container will be filled dynamically -->
+    <div id="galleryContainer" class="gallery-container" style="display: none;"></div> <!-- This container will be filled dynamically -->
 
-    
     <div class="sheet-music-main">
-        <a id="pdfDownloadButton" class="pdf-download" href="#" download>Download Sheet Music</a>
+        <a id="pdfDownloadButton" class="pdf-download" style="display: none;" href="#" download>Download Sheet Music</a>
     </div>
 
     <!-- Toggleable Sheet Music List -->
-    <button id="toggleSheetMusic" class="cute-sheet-music-btn">🎵 Download Other Sheet Music 🎀</button>
+    <button id="toggleSheetMusic" class="cute-sheet-music-btn">🎵 Download By Composer 🎀</button>
 
     
     <!-- <div id="sheetMusicList" class="sheet-music-panel">
@@ -107,6 +106,39 @@
             </ul>
         </div>
     </div>
+
+    <div class="search-container">
+        <input type="text" id="pdf-search" placeholder="Search for sheet music...">
+        <button onclick="searchPDFs()" class="search-btn">🔍</button>
+    </div>    
+    
+    <div id="search-results">
+        <ul id="pdf-list">
+            <!-- List items will be dynamically generated here -->
+            <li>
+                <span>Song 1</span>
+                <a href="song1.pdf" target="_blank" class="view-btn">View</a>
+                <a href="song1.pdf" download class="download-btn">Download</a>
+            </li>
+            <li>
+                <span>Song 2</span>
+                <a href="song2.pdf" target="_blank" class="view-btn">View</a>
+                <a href="song2.pdf" download class="download-btn">Download</a>
+            </li>
+            <li>
+                <span>Song 3</span>
+                <a href="song3.pdf" target="_blank" class="view-btn">View</a>
+                <a href="song3.pdf" download class="download-btn">Download</a>
+            </li>
+            <!-- More list items... -->
+        </ul>
+    </div>
+    
+    <div id="pagination">
+        <button id="prev-page" onclick="changePage('prev')">Previous</button>
+        <button id="next-page" onclick="changePage('next')">Next</button>
+    </div>
+    
     <!-- Space -->
     <div class="space"></div>
 

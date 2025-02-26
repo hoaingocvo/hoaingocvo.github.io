@@ -53,15 +53,6 @@ document.addEventListener("DOMContentLoaded", function() {
         introPage.style.opacity = "1"; // Set opacity to 1
     });
 
-    // Get references to the close button and the gallery container
-
-// Add an event listener to the close button
-closeButton.addEventListener('click', function() {
-    // Hide the gallery container when the close button is clicked
-    galleryContainer.style.display = 'none';
-});
-
-
     // Dynamically load gallery when a song is clicked
     songList.addEventListener("click", function(e) {
         if (e.target && e.target.matches("a")) {
@@ -183,10 +174,16 @@ const composerButtons = document.getElementById("composerButtons");
 const sheetMusicList = document.getElementById("sheetMusicList");
 
 toggleSheetMusic.addEventListener("click", function() {
-    // Toggle visibility of composer buttons
-    composerButtons.style.display = composerButtons.style.display === "none" ? "block" : "none";
-    sheetMusicList.style.display = "block"; // Ensure sheet music list is shown when toggle button is clicked
+    // Toggle composer buttons
+    if (composerButtons.style.display === "none" || composerButtons.style.display === "") {
+        composerButtons.style.display = "grid"; // Show buttons
+        sheetMusicList.style.display = "block"; // Show sheet music list
+    } else {
+        composerButtons.style.display = "none"; // Hide buttons
+        sheetMusicList.style.display = "none"; // Hide sheet music list
+    }
 });
+
 
 // Show sheet music list for a specific composer when their button is clicked
 const composerBtns = document.querySelectorAll(".composer-btn");
@@ -206,3 +203,69 @@ composerBtns.forEach(btn => {
     });
 });
 
+//
+const pdfs = [
+    { name: 'Song 1', file: 'song1.pdf' },
+    { name: 'Song 2', file: 'song2.pdf' },
+    { name: 'Song 3', file: 'song3.pdf' },
+    { name: 'Song 4', file: 'song4.pdf' },
+    { name: 'Song 5', file: 'song5.pdf' },
+    { name: 'Song 6', file: 'song6.pdf' },
+    { name: 'Song 7', file: 'song7.pdf' },
+    { name: 'Song 8', file: 'song8.pdf' },
+
+    // Add more song data here...
+];
+
+let currentPage = 1;
+const itemsPerPage = 3;
+
+function renderPage(page) {
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = page * itemsPerPage;
+    const songsToDisplay = pdfs.slice(startIndex, endIndex);
+
+    // Clear the previous list items
+    const list = document.getElementById("pdf-list");
+    list.innerHTML = '';
+
+    // Add new items based on current page
+    songsToDisplay.forEach(song => {
+        const listItem = document.createElement("li");
+        listItem.innerHTML = `
+            <span>${song.name}</span>
+            <a href="${song.file}" target="_blank" class="view-btn">View</a>
+            <a href="${song.file}" download class="download-btn">Download</a>
+        `;
+        list.appendChild(listItem);
+    });
+
+    // Toggle visibility of the previous/next buttons based on the current page
+    document.getElementById("prev-page").style.display = page > 1 ? 'inline' : 'none';
+    document.getElementById("next-page").style.display = endIndex < pdfs.length ? 'inline' : 'none';
+}
+
+function changePage(direction) {
+    if (direction === 'next' && currentPage * itemsPerPage < pdfs.length) {
+        currentPage++;
+    } else if (direction === 'prev' && currentPage > 1) {
+        currentPage--;
+    }
+    renderPage(currentPage);
+}
+
+function searchPDFs() {
+    // Simulating a search action, but you can filter `pdfs` based on user input
+    const searchTerm = document.getElementById("pdf-search").value.toLowerCase();
+    const filteredPdfs = pdfs.filter(pdf => pdf.name.toLowerCase().includes(searchTerm));
+
+    // Update the list with filtered results and reset the page number
+    pdfs.length = 0; // Clear original array
+    Array.prototype.push.apply(pdfs, filteredPdfs); // Push filtered PDFs into the array
+
+    currentPage = 1; // Reset to the first page after search
+    renderPage(currentPage);
+}
+
+// Initial render of the page with the first set of results
+renderPage(currentPage);

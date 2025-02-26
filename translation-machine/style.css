@@ -1,7 +1,7 @@
 /* Basic styles for the page */
 body {
     font-family: Arial, sans-serif;
-    background: url('bg3.jpeg') repeat-y center top; /* Allows vertical scrolling */
+    background: url('bg5.jpg') repeat-y center top; /* Allows vertical scrolling */
     background-size: cover; /* Ensures full width without distortion */
     background-attachment: fixed; /* Keeps background in place while scrolling */
     padding:0px;
@@ -382,34 +382,71 @@ width: 100%;
     transition: opacity 0.3s ease-in-out; /* Smooth opacity transition */
 }
 
-/* Container for the composer buttons */
-.composer-buttons-container {
-    display: grid; /* Using grid layout */
-    grid-template-columns: repeat(3, 1fr); /* 3 buttons per row */
-    gap: 20px; /* Add spacing between buttons */
-    padding: 20px;
-    width: 100%; /* Full width for container */
-    text-align: center; /* Center text inside buttons */
-}
-
-/* Style for each composer button */
+/* ✅ Apply grid layout to the .composer-buttons container */
 .composer-buttons {
-    font-size: 18px; /* Increase font size */
-    padding: 15px 25px; /* Add padding for larger buttons */
-    background-color: #5f5f5f; /* Dark background color */
-    color: white; /* White text color */
-    border: none;
-    border-radius: 10px; /* Rounded corners for buttons */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    text-align: center; /* Center the text in the button */
+    display: grid; /* Enables grid layout */
+    grid-template-columns: repeat(3, 1fr); /* 3 buttons per row */
+    gap: 25px; /* Spacing between buttons */
+    padding: 30px; /* Space around the grid */
+    width: 80%; /* Keeps grid from stretching too wide */
+    margin: 0 auto; /* Centers the grid */
+    justify-content: center; /* Ensures buttons are evenly spread */
 }
 
-/* Hover effect for composer buttons */
-.composer-buttons:hover {
-    background-color: #ff839e; /* Change button background color on hover */
-    transform: translateY(-5px); /* Slightly lift the button on hover */
+/* ✅ Style for each button */
+.composer-btn {
+    font-size: 22px; /* Bigger text */
+    font-weight: bold; /* Make text pop */
+    padding: 30px; /* More padding to make them fatter */
+    background-color: #ffffff; /* Soft white background */
+    color: rgb(0, 0, 0); /* Black text for contrast */
+    border: none;
+    border-radius: 25px; /* Rounded edges */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-align: center;
+    width: 100%; /* Make buttons fill grid cells */
+    height: 120px; /* Make buttons taller */
+    display: flex; /* Ensures text stays centered */
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    
+    /* ✨ Softer shadow style (removes inset and makes it subtle) */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), /* Light shadow */
+                0 8px 15px rgba(0, 0, 0, 0.15); /* Softer, spread-out shadow */
 }
+
+/* Hover effect */
+.composer-btn:hover {
+    background-color: #f0f0f0; /* Slightly darker on hover */
+    transform: translateY(-3px); /* Slight floating effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), /* More depth on hover */
+                0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Active (clicked) effect */
+.composer-btn:active {
+    transform: translateY(2px); /* Slight push effect */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ✅ Responsive Fix: 2 per row on tablets */
+@media (max-width: 768px) {
+    .composer-buttons {
+        grid-template-columns: repeat(2, 1fr); /* 2 buttons per row */
+        width: 90%;
+    }
+}
+
+/* ✅ Responsive Fix: 1 per row on small screens */
+@media (max-width: 480px) {
+    .composer-buttons {
+        grid-template-columns: repeat(1, 1fr); /* 1 button per row */
+        width: 100%;
+    }
+}
+
 
 .composer-sheet-list {
     max-width: 50%; /* Or whatever fits your design */
@@ -476,4 +513,133 @@ footer {
     bottom: 0;
     width: 100%;
     z-index: 1000; /* Set a higher z-index value */
+}
+
+/* Style for the search container */
+.search-container {
+    display: flex;
+    color: #333;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Space between input and button */
+    margin: 30px 0; /* Adjust spacing as needed */
+}
+
+/* Style for the search input with a pluffy pink-white gradient */
+#pdf-search {
+    padding: 15px 25px; /* Bigger input box */
+    font-size: 18px; /* Larger text */
+    border-radius: 25px; /* Rounder corners */
+    border: 5px solid #ff839e; /* Thicker border for more pluffiness */
+    outline: none; /* Remove default outline */
+    width: 300px; /* Adjust width */
+    background: linear-gradient(145deg, #ffffff, #ffcfdc); /* Soft pink-to-white gradient */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow around the input */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus state for search input */
+#pdf-search:focus {
+    border-color: #ff5c8e; /* Focus color */
+    box-shadow: 0 0 10px rgba(255, 92, 142, 0.5); /* Glow effect on focus */
+}
+
+/* Style for the search button */
+.search-btn {
+    background: linear-gradient(135deg, #ffb6c1, #ff69b4); /* Soft pink gradient */
+    color: white;
+    border: none;
+    border-radius: 50px; /* Extra rounded */
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3); /* Soft glow */
+    transition: all 0.3s ease, transform 0.2s ease-in-out;
+    padding: 15px 20px; /* Larger padding */
+    font-size: 18px; /* Bigger text */
+}
+
+/* Hover effect for search button */
+.search-btn:hover {
+    background: linear-gradient(135deg, #ff69b4, #ff1493); /* Darker pink when hovered */
+    transform: scale(1.1); /* Slight bounce */
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5);
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+
+/* Style for the result list */
+#pdf-list {
+    margin-top: 20px;
+    padding: 0;
+    list-style-type: none;
+}
+
+#pdf-list li {
+    max-width: 50%; /* Or whatever fits your design */
+    margin: 0 auto; /* Ensures centering in case of layout issues */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically if necessary */
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    margin-top: 50px;
+    color:#ffffff;
+    background-color: rgba(0, 0, 0, 0.5); /* Background color with 70% opacity */
+    opacity: 1; /* Full opacity for the text and other elements */
+}
+
+/* Style for the song name */
+#pdf-list li span {
+    flex-grow: 1; /* Make the song name take up available space */
+    text-align: center; /* Center the song name */
+}
+
+/* Style for the view and download buttons */
+.view-btn, .download-btn {
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; /* Space between the buttons */
+}
+
+.view-btn {
+    background-color: #4CAF50; /* Green */
+}
+
+.download-btn {
+    background-color: #008CBA; /* Blue */
+}
+
+/* Hover effects for view and download buttons */
+.view-btn:hover {
+    background-color: #45a049; /* Darker green */
+}
+
+.download-btn:hover {
+    background-color: #007bb5; /* Darker blue */
+}
+
+/* Pagination style */
+#pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#pagination button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #ffabc2;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#pagination button:hover {
+    background-color: #ff839e; /* Darker pink on hover */
 }
