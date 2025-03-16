@@ -205,7 +205,7 @@ composerBtns.forEach(btn => {
 
 //
 const pdfs = [
-    { name: 'Song 1', file: 'song1.pdf' },
+    { name: '【 Virus 】 by Beethoven', file: 'beethoven-virus.pdf' },
     { name: 'Song 2', file: 'song2.pdf' },
     { name: 'Song 3', file: 'song3.pdf' },
     { name: 'Song 4', file: 'song4.pdf' },

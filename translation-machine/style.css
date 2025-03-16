@@ -1,7 +1,7 @@
 /* Basic styles for the page */
 body {
     font-family: Arial, sans-serif;
-    background: url('bg5.jpg') repeat-y center top; /* Allows vertical scrolling */
+    background: url('bg6.jpg') repeat-y center top; /* Allows vertical scrolling */
     background-size: cover; /* Ensures full width without distortion */
     background-attachment: fixed; /* Keeps background in place while scrolling */
     padding:0px;
@@ -253,7 +253,7 @@ header .header-content h1 {
 
 #video-frame-container iframe {
     width: 80%;  /* Adjust the width as needed (percentage or fixed pixel value) */
-    height: 500px; /* Adjust the height to suit your preference */
+    height: 600px; /* Adjust the height to suit your preference */
 }
 
 .space {
@@ -282,17 +282,16 @@ width: 100%;
 /* Ensure the gallery container is a 2x2 grid */
 .gallery-container {
     display: grid !important;
-    grid-template-columns: repeat(2, 1fr); /* Exactly 2 columns */
-    grid-template-rows: repeat(2, auto); /* Exactly 2 rows */
+    grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+    grid-template-rows: auto auto auto; /* 3 rows */
     gap: 15px; /* Space between images */
-    justify-items: center; /* Centers items inside their grid cells */
+    justify-items: center; /* Centers items inside grid cells */
     align-items: center;
     width: 100%;
     max-width: 1200px;
     margin: 20px auto;
-    padding: 20px 20px;
+    padding: 20px;
 }
-
 
 /* Each image wrapper */
 .gallery-container a {
@@ -308,6 +307,12 @@ width: 100%;
     object-fit: cover; /* Prevents stretching */
     border-radius: 8px; /* Optional */
     transition: transform 0.3s ease-in-out;
+}
+
+/* Large middle image styling */
+.gallery-container a:nth-child(3) {
+    grid-column: span 2; /* Middle image spans across both columns */
+    width: 100%;
 }
 
 /* Hover effect */
