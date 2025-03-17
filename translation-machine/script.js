@@ -205,10 +205,10 @@ composerBtns.forEach(btn => {
 
 //
 const pdfs = [
-    { name: '【 Virus 】 by Beethoven', file: 'beethoven-virus.pdf' },
-    { name: 'Song 2', file: 'song2.pdf' },
-    { name: 'Song 3', file: 'song3.pdf' },
-    { name: 'Song 4', file: 'song4.pdf' },
+    { name: '【 Fur Elise 】by Beethoven', file: '.pdf' },
+    { name: '【 Mariage de Amour 】by Paul de Senneville', file: 'song3.pdf' },
+    { name: '【 Virus 】by Beethoven', file: 'beethoven-virus.pdf' },
+    { name: '【 Opus 27 No 2 Moonlight Sonata - 1st movement 】by Beethoven', file: 'opus-27-no-2-moonlight-sonata-1st-movement.pdf' },
     { name: 'Song 5', file: 'song5.pdf' },
     { name: 'Song 6', file: 'song6.pdf' },
     { name: 'Song 7', file: 'song7.pdf' },
@@ -234,11 +234,11 @@ function renderPage(page) {
         const listItem = document.createElement("li");
         listItem.innerHTML = `
             <span>${song.name}</span>
-            <a href="${song.file}" target="_blank" class="view-btn">View</a>
-            <a href="${song.file}" download class="download-btn">Download</a>
+            <a href="sheets/${song.file}" target="_blank" class="view-btn">View</a>
+            <a href="sheets/${song.file}" download class="download-btn">Download</a>
         `;
         list.appendChild(listItem);
-    });
+    });    
 
     // Toggle visibility of the previous/next buttons based on the current page
     document.getElementById("prev-page").style.display = page > 1 ? 'inline' : 'none';
