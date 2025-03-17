@@ -209,7 +209,7 @@ const pdfs = [
     { name: '【 Mariage de Amour 】by Paul de Senneville', file: 'song3.pdf' },
     { name: '【 Virus 】by Beethoven', file: 'beethoven-virus.pdf' },
     { name: '【 Opus 27 No 2 Moonlight Sonata - 1st movement 】by Beethoven', file: 'opus-27-no-2-moonlight-sonata-1st-movement.pdf' },
-    { name: 'Song 5', file: 'song5.pdf' },
+    { name: '【 Lacrimosa - Requiem 】by Mozart', file: 'lacrimosa-requiem.pdf' },
     { name: 'Song 6', file: 'song6.pdf' },
     { name: 'Song 7', file: 'song7.pdf' },
     { name: 'Song 8', file: 'song8.pdf' },
