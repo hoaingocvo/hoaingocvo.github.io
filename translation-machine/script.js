@@ -205,13 +205,13 @@ composerBtns.forEach(btn => {
 
 //
 const pdfs = [
-    { name: '【 Fur Elise 】by Beethoven', file: 'fur-elise.pdf' },
-    { name: '【 Mariage de Amour 】by Paul de Senneville', file: 'mariage-d-amour.pdf' },
-    { name: '【 Toccata 】by Paul Mauriat', file: 'toccata-paul-mauriat.pdf' },
-    { name: '【 Virus 】by Beethoven', file: 'beethoven-virus.pdf' },
-    { name: '【 Moonlight Sonata: Op. 27 No. 2  - 1st movement 】by Beethoven', file: 'opus-27-no-2-moonlight-sonata-1st-movement.pdf' },
-    { name: '【 Lacrimosa - Requiem 】by Wolfgang Amadeus Mozart', file: 'lacrimosa-requiem.pdf' },
-    { name: '【 Passacaglia 】by Handel Halvorsen', file: 'passacaglia.pdf' },
+    { name: '【 Fur Elise 】Beethoven', file: 'fur-elise.pdf' },
+    { name: '【 Mariage de Amour 】Paul de Senneville', file: 'mariage-d-amour.pdf' },
+    { name: '【 Toccata 】Paul Mauriat', file: 'toccata-paul-mauriat.pdf' },
+    { name: '【 Virus 】Beethoven', file: 'beethoven-virus.pdf' },
+    { name: '【 Moonlight Sonata: Op. 27 No. 2  - 1st 】Beethoven', file: 'opus-27-no-2-moonlight-sonata-1st-movement.pdf' },
+    { name: '【 Lacrimosa - Requiem 】Wolfgang Amadeus Mozart', file: 'lacrimosa-requiem.pdf' },
+    { name: '【 Passacaglia 】Handel Halvorsen', file: 'passacaglia.pdf' },
     { name: 'Song 8', file: 'song8.pdf' },
 
     // Add more song data here...
@@ -239,9 +239,10 @@ function renderPage(page) {
                 <span class="brackets">【</span>
                 <span class="song-title">${bracketedTitle}</span>
                 <span class="brackets">】</span>
+                <br>
                 <span class="composer">${composer}</span>
             `;
-        }
+        }        
 
         const listItem = document.createElement("li");
         listItem.innerHTML = `

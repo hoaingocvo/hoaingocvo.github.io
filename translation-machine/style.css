@@ -600,7 +600,7 @@ footer {
 #pdf-list li span {
     flex-grow: 1; /* Make the song name take up available space */
     text-align: center; /* Center the song name */
-    margin: 10px;
+    margin: 5px;
 }
 
 .song-title, .brackets {
@@ -608,8 +608,15 @@ footer {
     font-weight: bold;
 }
 
+.song-title {
+    display: inline-block;
+    margin-bottom: 5px; /* Tăng khoảng cách dưới tiêu đề */
+}
+
 .composer {
     font-size: 0.9em; /* Slightly smaller than the title */
+    display: block; /* Đảm bảo xuống dòng */
+    margin-top: 5px; /* Điều chỉnh khoảng cách trên composer */
 }
 
 /* Style for the view and download buttons */
