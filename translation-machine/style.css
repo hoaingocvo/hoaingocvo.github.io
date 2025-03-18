@@ -36,8 +36,10 @@ header .header-content h1 {
 }
 
 .button-container {
+    align-items: center;
+    justify-content: center;
     display: flex;
-    gap: 10px; /* Space between buttons */
+    gap: 50px; /* Space between buttons */
     margin-bottom: 10px;
 }
 
@@ -598,6 +600,16 @@ footer {
 #pdf-list li span {
     flex-grow: 1; /* Make the song name take up available space */
     text-align: center; /* Center the song name */
+    margin: 10px;
+}
+
+.song-title, .brackets {
+    font-size: 20px; /* Makes the title and brackets the same size */
+    font-weight: bold;
+}
+
+.composer {
+    font-size: 0.9em; /* Slightly smaller than the title */
 }
 
 /* Style for the view and download buttons */

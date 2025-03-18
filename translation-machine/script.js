@@ -205,13 +205,13 @@ composerBtns.forEach(btn => {
 
 //
 const pdfs = [
-    { name: '【 Fur Elise 】by Beethoven', file: '.pdf' },
-    { name: '【 Mariage de Amour 】by Paul de Senneville', file: 'song3.pdf' },
+    { name: '【 Fur Elise 】by Beethoven', file: 'fur-elise.pdf' },
+    { name: '【 Mariage de Amour 】by Paul de Senneville', file: 'mariage-d-amour.pdf' },
+    { name: '【 Toccata 】by Paul Mauriat', file: 'toccata-paul-mauriat.pdf' },
     { name: '【 Virus 】by Beethoven', file: 'beethoven-virus.pdf' },
-    { name: '【 Opus 27 No 2 Moonlight Sonata - 1st movement 】by Beethoven', file: 'opus-27-no-2-moonlight-sonata-1st-movement.pdf' },
-    { name: '【 Lacrimosa - Requiem 】by Mozart', file: 'lacrimosa-requiem.pdf' },
-    { name: 'Song 6', file: 'song6.pdf' },
-    { name: 'Song 7', file: 'song7.pdf' },
+    { name: '【 Moonlight Sonata: Op. 27 No. 2  - 1st movement 】by Beethoven', file: 'opus-27-no-2-moonlight-sonata-1st-movement.pdf' },
+    { name: '【 Lacrimosa - Requiem 】by Wolfgang Amadeus Mozart', file: 'lacrimosa-requiem.pdf' },
+    { name: '【 Passacaglia 】by Handel Halvorsen', file: 'passacaglia.pdf' },
     { name: 'Song 8', file: 'song8.pdf' },
 
     // Add more song data here...
@@ -225,22 +225,33 @@ function renderPage(page) {
     const endIndex = page * itemsPerPage;
     const songsToDisplay = pdfs.slice(startIndex, endIndex);
 
-    // Clear the previous list items
     const list = document.getElementById("pdf-list");
     list.innerHTML = '';
 
-    // Add new items based on current page
     songsToDisplay.forEach(song => {
+        const match = song.name.match(/【(.*?)】(.*)/);
+        let formattedTitle = song.name;
+
+        if (match) {
+            const bracketedTitle = match[1]; // Extract title inside 【 】
+            const composer = match[2] ? match[2].trim() : ''; // Extract composer part
+            formattedTitle = `
+                <span class="brackets">【</span>
+                <span class="song-title">${bracketedTitle}</span>
+                <span class="brackets">】</span>
+                <span class="composer">${composer}</span>
+            `;
+        }
+
         const listItem = document.createElement("li");
         listItem.innerHTML = `
-            <span>${song.name}</span>
+            <span>${formattedTitle}</span>
             <a href="sheets/${song.file}" target="_blank" class="view-btn">View</a>
             <a href="sheets/${song.file}" download class="download-btn">Download</a>
         `;
         list.appendChild(listItem);
     });    
 
-    // Toggle visibility of the previous/next buttons based on the current page
     document.getElementById("prev-page").style.display = page > 1 ? 'inline' : 'none';
     document.getElementById("next-page").style.display = endIndex < pdfs.length ? 'inline' : 'none';
 }
