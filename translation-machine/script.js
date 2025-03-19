@@ -212,7 +212,7 @@ const pdfs = [
     { name: '【 Moonlight Sonata: Op. 27 No. 2  - 1st 】Beethoven', file: 'opus-27-no-2-moonlight-sonata-1st-movement.pdf' },
     { name: '【 Lacrimosa - Requiem 】Wolfgang Amadeus Mozart', file: 'lacrimosa-requiem.pdf' },
     { name: '【 Passacaglia 】Handel Halvorsen', file: 'passacaglia.pdf' },
-    { name: 'Song 8', file: 'song8.pdf' },
+    { name: '【 Tears On The Piano Keys 】Vladimir Stezers', file: 'tears-on-the-piano-key.pdf' },
 
     // Add more song data here...
 ];
