@@ -1,23 +1,21 @@
-/* Basic styles for the page */
-body {
-    font-family: Arial, sans-serif;
-    background: url('bg6.jpg') repeat-y center top; /* Allows vertical scrolling */
-    background-size: cover; /* Ensures full width without distortion */
-    background-attachment: fixed; /* Keeps background in place while scrolling */
-    padding:0px;
-    margin: 0px;
-    width: 100%;
-    min-height: 100vh; /* Ensures the body is at least the height of the viewport */
-    height: 100vh; /* Ensure the background image takes up the full height */
-    box-sizing: border-box; /* Prevents padding from affecting width */
+/* Global styles */
+* {
+    box-sizing: border-box; /* Apply globally */
 }
 
-.unifrakturcook-bold {
-    font-family: "UnifrakturCook", serif;
-    font-weight: 700;
-    font-style: normal;
-  }
-  
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Header */
 header {
     background-color: #333;
     color: white;
@@ -25,204 +23,196 @@ header {
     text-align: center;
 }
 
-header .header-content h1 {
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+/* Hero Section */
+#hero {
+    background-image: url('DSCF0729.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    height: 80%;
+    height: auto;
+    min-height: 80vh; /* Set a minimum height to ensure it doesn't shrink too much */
+}
+
+
+@media (max-width: 768px) {
+    #hero {
+        padding: 40px 20px;  /* Adjust padding for smaller screens */
+    }
+}
+
+#hero h2 {
+    font-size: 2.5em;
     margin: 0;
 }
 
-.logo-container img {
-    max-width: 100px;
-    display: block;
-    margin: 20px auto;
+#hero p {
+    font-size: 1.2em;
 }
 
-.button-container {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    gap: 50px; /* Space between buttons */
-    margin-bottom: 10px;
-}
-
-.performances-btn, .close-btn {
-    padding: 10px 15px;
-    font-size: 16px;
-    cursor: pointer;
+#hero button {
+    background-color: #ff6600;
+    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
 }
 
-/* Initially hide the intro page */
-.intro {
-    display: none; /* Hidden initially */
-    flex-grow: 0; /* Prevents intro from growing too large */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+#hero button:hover {
+    background-color: #e65c00;
+}
+
+/* Performances Section */
+#performances {
+    padding: 40px 20px;
+    background-color: white;
     text-align: center;
-    background: url('cute-background.jpg') no-repeat center center;
-    background-size: cover;
-    color: rgb(0, 0, 0);
-    font-family: 'Arial', sans-serif;
-    padding: 0px;
-    border-radius: 20px;
-    width: 100%; /* Ensure intro takes full width */
-    height: auto; /* Adjust height automatically */
-    margin-top: 20px; /* Space between header and intro */
-    max-height: 80vh; /* Limit height to not stretch too much */
+    align-items: center;
 }
 
-.intro.show {
-    display: flex;
-    height: auto;
+#performances h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
 }
 
-/* Intro Container */
-#intro {
-    background-color: rgba(0, 0, 0, 0.7); /* Dark background to make text pop */
-    color: white;
-    padding: 40px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 800px; /* Limiting width for readability */
-    margin: 20px auto; /* Centered horizontally */
-    text-align: center; /* Center text */
-    font-family: 'Arial', sans-serif; /* Choose a clean font */
-    line-height: 1.6; /* Spacing between lines for readability */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+.performance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    text-align: center;
+    align-items: center;
 }
 
-/* Title Styling */
-#intro h2 {
-    font-family: "UnifrakturCook", serif;
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 20px; /* Space between title and text */
-    color: #ffb6c1; /* Light pink for a soft touch */
+.performance-item {
+    background-color: #e8e8e8;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease;
 }
 
-/* Paragraph Styling */
-#intro p {
-    font-size: 18px;
-    margin-bottom: 20px; /* Space between paragraphs */
-    max-width: 90%; /* Prevent text from stretching too much */
-    margin-left: auto; /* Center-align paragraphs */
-    margin-right: auto; /* Center-align paragraphs */
+.performance-item:hover {
+    transform: scale(1.05);
 }
 
-/* Optional: Add some space between each block for a more structured look */
-#intro p + p {
-    margin-top: 10px;
+.performance-item video {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.performance-item h3 {
+    font-size: 1.8em;
+    margin-top: 15px;
+}
+
+.performance-item p {
+    font-size: 1.2em;
+}
+
+/* Song List Panel (Initially Hidden) */
+#songList {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed to stay centered even when scrolling */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Ensure the element is truly centered */
+    background-color: #ffe0e0; /* Soft pastel pink background */
+    padding: 40px 60px; /* Larger padding for a soft, cozy feel */
+    border-radius: 25px; /* More rounded corners for a playful look */
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1); /* Soft, fluffy shadow for a cute touch */
+    width: 85%; /* Limit the width to prevent overflowing */
+    max-width: 600px; /* Set a max-width to avoid very large screens */
+    z-index: 9999; /* Ensure it is on top of other content */
+    text-align: center;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth fade-in and scaling */
+    border: 2px solid #f1a7c9; /* Soft border for a cute effect */
+    backdrop-filter: blur(5px); /* Soft background blur to enhance the modern feel */
+}
+
+/* Active Song List Styling */
+#songList ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* A modern, clean font */
+}
+
+#songList ul li {
+    margin: 20px 0; /* More space between list items */
+}
+
+/* Styling for Song List Items */
+#songList ul li a {
+    font-size: 1.5em; /* Slightly smaller font size for a delicate look */
+    color: #5a5a5a; /* Soft dark grey */
+    text-decoration: none;
+    padding: 12px 24px;
+    display: inline-block;
+    border-radius: 15px; /* Round the corners */
+    background-color: #fff; /* Light white background */
+    width: 100%;
+    box-sizing: border-box; /* Prevents padding from affecting width */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #f1a7c9; /* Soft border for a cute effect */
+}
+
+#songList ul li a:hover {
+    background-color: #f9c8d4; /* Light pink on hover */
+    color: #f58f91; /* Cute, warm color on hover */
+    transform: scale(1.05); /* Subtle zoom effect on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft glow on hover */
+}
+
+
+
+/* Gallery styling for the main gallery section */
+/* Ensure PDF button is visible by default */
+#pdfDownloadButton {
+    display: none; /* Start as hidden */
+}
+
+/* Show it when a song is selected and gallery is displayed */
+#song-info, #pdfDownloadButton {
+    display: block;
 }
 
 #closeButton {
-    position: relative;
-    z-index: 20; /* Ensures it's above the intro screen */
-    cursor: pointer; /* Ensures it's clickable */
-}
-
-/* Initially hide the song list */
-#songList {
-    display: none;
-}
-
-/* Show the song list when the "active" class is added */
-#songList.active {
-    display: block;
-}
-
-/* Style for the dropdown list */
-.panel {
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-size: contain;
-}
-
-.panel ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.panel li {
-    padding: 8px 12px;
-    cursor: pointer;
-}
-
-.panel li:hover {
-    background-color: #ddd;
-}
-
-
-/* Initially Hide Main Content */
-.hidden-content {
-    display: none;
-}
-
-/* Intro Page Styles */
-.intro-page {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('your-gif-url.gif') no-repeat center center fixed;
-    background-size: cover;
+    position: absolute;
+    top: 10px; /* Distance from the top of the container */
+    right: 10px; /* Distance from the right of the container */
+    background-color: #808080; /* Grey background */
+    color: white; /* White text color */
+    border: none; /* Remove any border */
+    padding: 10px; /* Space inside the button */
+    font-size: 16px; /* Adjust font size */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Change cursor to indicate it's clickable */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    width: 40px; /* Set width for square shape */
+    height: 40px; /* Set height for square shape */
+    text-align: center; /* Center the text inside */
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
-    opacity: 1;
-    transition: opacity 0.5s ease;
 }
 
-/* Intro Content Styling */
-.intro-content {
-    text-align: center;
-    color: white;
-    padding: 30px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
-    animation: floatIn 2s ease-out;
+#closeButton:hover {
+    background-color: #666666; /* Darker grey on hover */
 }
 
-/* Button Styling */
-.cute-btn {
-    padding-top: 0px;
-    background-color: #ff99cc;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+
+#closeButton:hover {
+    background-color: #666666; /* Darker grey when hovered */
 }
 
-/* Button Hover Effect */
-.cute-btn:hover {
-    background-color: #ff66b2;
-    transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5);
-}
-
-/* Animation for Text */
-@keyframes floatIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Hide content initially */
-#mainContent {
-    display: none;
-}
 
 .sheet-music-panel {
     display: none;
@@ -244,6 +234,7 @@ header .header-content h1 {
     font-size: 18px;
     color: #555;
 }
+
 
 /* Center the video container */
 #video-frame-container {
@@ -269,21 +260,9 @@ width: 100%;
     padding-bottom: 50px;
 }
 
-/* Gallery styling for the main gallery section */
-/* Ensure PDF button is visible by default */
-#pdfDownloadButton {
-    display: none; /* Start as hidden */
-}
-
-/* Show it when a song is selected and gallery is displayed */
-#song-info, #pdfDownloadButton {
-    display: block;
-}
-
-
 /* Ensure the gallery container is a 2x2 grid */
 .gallery-container {
-    display: grid !important;
+    display: none;
     grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
     grid-template-rows: auto auto auto; /* 3 rows */
     gap: 15px; /* Space between images */
@@ -322,348 +301,66 @@ width: 100%;
     transform: scale(1.1);
 }
 
-.sheet-music-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.pdf-download {
+#pdfDownloadButton {
+    display: block; /* Block display ensures no stretch */
+    max-width: 300px; /* Controls the width */
+    margin: 0 auto; /* Centers the button horizontally */
     padding: 12px 20px;
     background-color: #4CAF50;
     color: white;
-    text-decoration: none;
     font-size: 16px;
     border-radius: 5px;
     font-weight: bold;
     transition: background 0.3s ease;
+    text-align: center; /* Center text inside the button */
 }
 
 .pdf-download:hover {
     background-color: #45a049;
 }
 
-/* Cute Big Button for Sheet Music */
+/* Sheet Music Section */
+#sheet-music {
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+#sheet-music h2 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+
 .cute-sheet-music-btn {
-    display: block;
-    text-align: center;
-    margin: 25px auto;
-    padding: 18px 28px; /* Bigger size */
-    font-size: 20px; /* Bigger text */
-    font-weight: bold;
-    background: linear-gradient(135deg, #ffb6c1, #ff69b4); /* Soft pink gradient */
+    background-color: #007bff;
     color: white;
+    padding: 10px 20px;
     border: none;
-    border-radius: 50px; /* Extra rounded */
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3); /* Soft glow */
-    transition: all 0.3s ease, transform 0.2s ease-in-out;
 }
 
-/* Hover Effect: Slight Bounce & Glow */
 .cute-sheet-music-btn:hover {
-    background: linear-gradient(135deg, #ff69b4, #ff1493); /* Darker pink when hovered */
-    transform: scale(1.1); /* Slight bounce */
-    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5);
+    background-color: #0056b3;
 }
 
-/* Click Effect: Press Down */
-.cute-sheet-music-btn:active {
-    transform: scale(0.95); /* Slight shrink effect */
-}
-/* Style for the active sheet music panel */
-.sheet-music-panel.active {
-    width: 100%;    
-    margin: 0 auto; /* Center the panel horizontally */
-    display: flex;
-    justify-content: center; /* Horizontally center content */
-    align-items: center; /* Vertically center content */
-    text-align: center; /* Ensure text is centered */
-    background-size: cover; /* Ensure the background covers the entire area */
-    background-position: center; /* Center background image */
-    padding: 20px; /* Padding for spacing around the content */
-    margin-top: 50px; /* Spacing from the top of the page */
-    background-color: rgba(0, 0, 0, 0.5); /* Dark background with transparency */
-    opacity: 1; /* Full opacity for visibility */
-    transition: opacity 0.3s ease-in-out; /* Smooth opacity transition */
-}
-
-/* ✅ Apply grid layout to the .composer-buttons container */
-.composer-buttons {
-    display: grid; /* Enables grid layout */
-    grid-template-columns: repeat(3, 1fr); /* 3 buttons per row */
-    gap: 25px; /* Spacing between buttons */
-    padding: 30px; /* Space around the grid */
-    width: 80%; /* Keeps grid from stretching too wide */
-    margin: 0 auto; /* Centers the grid */
-    justify-content: center; /* Ensures buttons are evenly spread */
-}
-
-/* ✅ Style for each button */
-.composer-btn {
-    font-size: 22px; /* Bigger text */
-    font-weight: bold; /* Make text pop */
-    padding: 30px; /* More padding to make them fatter */
-    background-color: #ffffff; /* Soft white background */
-    color: rgb(0, 0, 0); /* Black text for contrast */
-    border: none;
-    border-radius: 25px; /* Rounded edges */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    text-align: center;
-    width: 100%; /* Make buttons fill grid cells */
-    height: 120px; /* Make buttons taller */
-    display: flex; /* Ensures text stays centered */
-    align-items: center; /* Center text vertically */
-    justify-content: center; /* Center text horizontally */
-    
-    /* ✨ Softer shadow style (removes inset and makes it subtle) */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), /* Light shadow */
-                0 8px 15px rgba(0, 0, 0, 0.15); /* Softer, spread-out shadow */
-}
-
-/* Hover effect */
-.composer-btn:hover {
-    background-color: #f0f0f0; /* Slightly darker on hover */
-    transform: translateY(-3px); /* Slight floating effect */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), /* More depth on hover */
-                0 12px 25px rgba(0, 0, 0, 0.2);
-}
-
-/* Active (clicked) effect */
-.composer-btn:active {
-    transform: translateY(2px); /* Slight push effect */
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-}
-
-
-/* ✅ Responsive Fix: 2 per row on tablets */
-@media (max-width: 768px) {
-    .composer-buttons {
-        grid-template-columns: repeat(2, 1fr); /* 2 buttons per row */
-        width: 90%;
-    }
-}
-
-/* ✅ Responsive Fix: 1 per row on small screens */
-@media (max-width: 480px) {
-    .composer-buttons {
-        grid-template-columns: repeat(1, 1fr); /* 1 button per row */
-        width: 100%;
-    }
-}
-
-
-.composer-sheet-list {
-    max-width: 50%; /* Or whatever fits your design */
-    margin: 0 auto; /* Ensures centering in case of layout issues */
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically if necessary */
-    text-align: center;
-    background-size: cover;
-    background-position: center;
-    padding: 20px;
-    margin-top: 50px;
-    background-color: rgba(0, 0, 0, 0.5); /* Background color with 70% opacity */
-    opacity: 1; /* Full opacity for the text and other elements */
-}
-
-/* Style for the sheet music list inside the panel */
-.sheet-music-panel ul {
-    list-style: none; /* Remove bullets from list */
+#sheetMusicList ul {
+    list-style: none;
     padding: 0;
-    margin: 0;
-    width: 100%; /* Ensure the list spans the container */
-    display: flex;
-    align-items: center; /* Vertically center content */
-    text-align: center; /* Ensure text is centered */
-    background-size: cover; /* Ensure the background covers the entire area */
-    background-position: center; /* Center background image */
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center list items horizontally */
 }
 
-/* Style for each individual list item (song) */
-.sheet-music-panel li {
-    width: 100%; /* List item spans full width */
-    text-align: center; /* Center text within the item */
-    opacity: 1; /* Full opacity for items */
+#sheetMusicList ul li a {
+    font-size: 1.2em;
+    color: #333;
+    text-decoration: none;
 }
 
-/* Style for the links to sheet music */
-.sheet-music-panel a {
-    text-decoration: none; /* Remove underline from links */
-    color: #ffffff; /* White text color */
-    font-size: 16px; /* Font size */
-    padding: 10px 15px; /* Padding for the link */
-    display: block; /* Ensure each link takes a full block */
-    transition: background 0.8s ease-in-out; /* Smooth transition for hover effect */
-    border-radius: 5px; /* Optional rounded corners for the link */
-    margin: 5px 0; /* Spacing between list items */
-}
-
-/* Hover effect for the sheet music links */
-.sheet-music-panel a:hover {
-    color: #ff839e; /* Change text color on hover */
-    font-weight: bold; /* Make the text bold */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow for effect */
+#sheetMusicList ul li a:hover {
+    color: #007bff;
 }
 
 footer {
-    background-color: rgb(0, 0, 0);
-    color: #ffffff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 1000; /* Set a higher z-index value */
-}
-
-/* Style for the search container */
-.search-container {
-    display: flex;
-    color: #333;
-    justify-content: center;
-    align-items: center;
-    gap: 15px; /* Space between input and button */
-    margin: 30px 0; /* Adjust spacing as needed */
-}
-
-/* Style for the search input with a pluffy pink-white gradient */
-#pdf-search {
-    padding: 15px 25px; /* Bigger input box */
-    font-size: 18px; /* Larger text */
-    border-radius: 25px; /* Rounder corners */
-    border: 5px solid #ff839e; /* Thicker border for more pluffiness */
-    outline: none; /* Remove default outline */
-    width: 300px; /* Adjust width */
-    background: linear-gradient(145deg, #ffffff, #ffcfdc); /* Soft pink-to-white gradient */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow around the input */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Focus state for search input */
-#pdf-search:focus {
-    border-color: #ff5c8e; /* Focus color */
-    box-shadow: 0 0 10px rgba(255, 92, 142, 0.5); /* Glow effect on focus */
-}
-
-/* Style for the search button */
-.search-btn {
-    background: linear-gradient(135deg, #ffb6c1, #ff69b4); /* Soft pink gradient */
+    background-color: #333;
     color: white;
-    border: none;
-    border-radius: 50px; /* Extra rounded */
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3); /* Soft glow */
-    transition: all 0.3s ease, transform 0.2s ease-in-out;
-    padding: 15px 20px; /* Larger padding */
-    font-size: 18px; /* Bigger text */
-}
-
-/* Hover effect for search button */
-.search-btn:hover {
-    background: linear-gradient(135deg, #ff69b4, #ff1493); /* Darker pink when hovered */
-    transform: scale(1.1); /* Slight bounce */
-    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5);
-    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-
-/* Style for the result list */
-#pdf-list {
-    margin-top: 20px;
-    padding: 0;
-    list-style-type: none;
-}
-
-#pdf-list li {
-    max-width: 50%; /* Or whatever fits your design */
-    margin: 0 auto; /* Ensures centering in case of layout issues */
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically if necessary */
     text-align: center;
-    background-size: cover;
-    background-position: center;
     padding: 20px;
-    margin-top: 50px;
-    color:#ffffff;
-    background-color: rgba(0, 0, 0, 0.5); /* Background color with 70% opacity */
-    opacity: 1; /* Full opacity for the text and other elements */
-}
-
-/* Style for the song name */
-#pdf-list li span {
-    flex-grow: 1; /* Make the song name take up available space */
-    text-align: center; /* Center the song name */
-    margin: 5px;
-}
-
-.song-title, .brackets {
-    font-size: 20px; /* Makes the title and brackets the same size */
-    font-weight: bold;
-}
-
-.song-title {
-    display: inline-block;
-    margin-bottom: 5px; /* Tăng khoảng cách dưới tiêu đề */
-}
-
-.composer {
-    font-size: 0.9em; /* Slightly smaller than the title */
-    display: block; /* Đảm bảo xuống dòng */
-    margin-top: 5px; /* Điều chỉnh khoảng cách trên composer */
-}
-
-/* Style for the view and download buttons */
-.view-btn, .download-btn {
-    padding: 8px 15px;
-    border-radius: 20px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    margin-left: 10px; /* Space between the buttons */
-}
-
-.view-btn {
-    background-color: #4CAF50; /* Green */
-}
-
-.download-btn {
-    background-color: #008CBA; /* Blue */
-}
-
-/* Hover effects for view and download buttons */
-.view-btn:hover {
-    background-color: #45a049; /* Darker green */
-}
-
-.download-btn:hover {
-    background-color: #007bb5; /* Darker blue */
-}
-
-/* Pagination style */
-#pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-#pagination button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    background-color: #ffabc2;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#pagination button:hover {
-    background-color: #ff839e; /* Darker pink on hover */
 }

@@ -1,0 +1,669 @@
+/* Basic styles for the page */
+body {
+    font-family: Arial, sans-serif;
+    background: url('bg6.jpg') repeat-y center top; /* Allows vertical scrolling */
+    background-size: cover; /* Ensures full width without distortion */
+    background-attachment: fixed; /* Keeps background in place while scrolling */
+    padding:0px;
+    margin: 0px;
+    width: 100%;
+    min-height: 100vh; /* Ensures the body is at least the height of the viewport */
+    height: 100vh; /* Ensure the background image takes up the full height */
+    box-sizing: border-box; /* Prevents padding from affecting width */
+}
+
+.unifrakturcook-bold {
+    font-family: "UnifrakturCook", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header .header-content h1 {
+    margin: 0;
+}
+
+.logo-container img {
+    max-width: 100px;
+    display: block;
+    margin: 20px auto;
+}
+
+.button-container {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 50px; /* Space between buttons */
+    margin-bottom: 10px;
+}
+
+.performances-btn, .close-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Initially hide the intro page */
+.intro {
+    display: none; /* Hidden initially */
+    flex-grow: 0; /* Prevents intro from growing too large */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url('cute-background.jpg') no-repeat center center;
+    background-size: cover;
+    color: rgb(0, 0, 0);
+    font-family: 'Arial', sans-serif;
+    padding: 0px;
+    border-radius: 20px;
+    width: 100%; /* Ensure intro takes full width */
+    height: auto; /* Adjust height automatically */
+    margin-top: 20px; /* Space between header and intro */
+    max-height: 80vh; /* Limit height to not stretch too much */
+}
+
+.intro.show {
+    display: flex;
+    height: auto;
+}
+
+/* Intro Container */
+#intro {
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background to make text pop */
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px; /* Limiting width for readability */
+    margin: 20px auto; /* Centered horizontally */
+    text-align: center; /* Center text */
+    font-family: 'Arial', sans-serif; /* Choose a clean font */
+    line-height: 1.6; /* Spacing between lines for readability */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+}
+
+/* Title Styling */
+#intro h2 {
+    font-family: "UnifrakturCook", serif;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px; /* Space between title and text */
+    color: #ffb6c1; /* Light pink for a soft touch */
+}
+
+/* Paragraph Styling */
+#intro p {
+    font-size: 18px;
+    margin-bottom: 20px; /* Space between paragraphs */
+    max-width: 90%; /* Prevent text from stretching too much */
+    margin-left: auto; /* Center-align paragraphs */
+    margin-right: auto; /* Center-align paragraphs */
+}
+
+/* Optional: Add some space between each block for a more structured look */
+#intro p + p {
+    margin-top: 10px;
+}
+
+#closeButton {
+    position: relative;
+    z-index: 20; /* Ensures it's above the intro screen */
+    cursor: pointer; /* Ensures it's clickable */
+}
+
+/* Initially hide the song list */
+#songList {
+    display: none;
+}
+
+/* Show the song list when the "active" class is added */
+#songList.active {
+    display: block;
+}
+
+/* Style for the dropdown list */
+.panel {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-size: contain;
+}
+
+.panel ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.panel li {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.panel li:hover {
+    background-color: #ddd;
+}
+
+
+/* Initially Hide Main Content */
+.hidden-content {
+    display: none;
+}
+
+/* Intro Page Styles */
+.intro-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('your-gif-url.gif') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* Intro Content Styling */
+.intro-content {
+    text-align: center;
+    color: white;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    animation: floatIn 2s ease-out;
+}
+
+/* Button Styling */
+.cute-btn {
+    padding-top: 0px;
+    background-color: #ff99cc;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+}
+
+/* Button Hover Effect */
+.cute-btn:hover {
+    background-color: #ff66b2;
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5);
+}
+
+/* Animation for Text */
+@keyframes floatIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hide content initially */
+#mainContent {
+    display: none;
+}
+
+.sheet-music-panel {
+    display: none;
+}
+
+/* Song Info */
+#song-info {
+    margin-top: 20px;
+    text-align: center;
+    background-size: contain;
+}
+
+#song-title {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+#composer-name {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Center the video container */
+#video-frame-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#video-frame-container iframe {
+    width: 80%;  /* Adjust the width as needed (percentage or fixed pixel value) */
+    height: 600px; /* Adjust the height to suit your preference */
+}
+
+.space {
+height: 200px;
+width: 100%;
+}
+
+.space1 {
+    height: 100px;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+/* Gallery styling for the main gallery section */
+/* Ensure PDF button is visible by default */
+#pdfDownloadButton {
+    display: none; /* Start as hidden */
+}
+
+/* Show it when a song is selected and gallery is displayed */
+#song-info, #pdfDownloadButton {
+    display: block;
+}
+
+
+/* Ensure the gallery container is a 2x2 grid */
+.gallery-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+    grid-template-rows: auto auto auto; /* 3 rows */
+    gap: 15px; /* Space between images */
+    justify-items: center; /* Centers items inside grid cells */
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Each image wrapper */
+.gallery-container a {
+    display: block;
+    width: 100%; /* Make sure it fills the grid cell */
+    overflow: hidden;
+}
+
+/* Ensuring images scale properly */
+.gallery-container img {
+    width: 100%; /* Ensures image fills its parent */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover; /* Prevents stretching */
+    border-radius: 8px; /* Optional */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Large middle image styling */
+.gallery-container a:nth-child(3) {
+    grid-column: span 2; /* Middle image spans across both columns */
+    width: 100%;
+}
+
+/* Hover effect */
+.gallery-container a:hover img {
+    transform: scale(1.1);
+}
+
+.sheet-music-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pdf-download {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.pdf-download:hover {
+    background-color: #45a049;
+}
+
+/* Cute Big Button for Sheet Music */
+.cute-sheet-music-btn {
+    display: block;
+    text-align: center;
+    margin: 25px auto;
+    padding: 18px 28px; /* Bigger size */
+    font-size: 20px; /* Bigger text */
+    font-weight: bold;
+    background: linear-gradient(135deg, #ffb6c1, #ff69b4); /* Soft pink gradient */
+    color: white;
+    border: none;
+    border-radius: 50px; /* Extra rounded */
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3); /* Soft glow */
+    transition: all 0.3s ease, transform 0.2s ease-in-out;
+}
+
+/* Hover Effect: Slight Bounce & Glow */
+.cute-sheet-music-btn:hover {
+    background: linear-gradient(135deg, #ff69b4, #ff1493); /* Darker pink when hovered */
+    transform: scale(1.1); /* Slight bounce */
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5);
+}
+
+/* Click Effect: Press Down */
+.cute-sheet-music-btn:active {
+    transform: scale(0.95); /* Slight shrink effect */
+}
+/* Style for the active sheet music panel */
+.sheet-music-panel.active {
+    width: 100%;    
+    margin: 0 auto; /* Center the panel horizontally */
+    display: flex;
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
+    text-align: center; /* Ensure text is centered */
+    background-size: cover; /* Ensure the background covers the entire area */
+    background-position: center; /* Center background image */
+    padding: 20px; /* Padding for spacing around the content */
+    margin-top: 50px; /* Spacing from the top of the page */
+    background-color: rgba(0, 0, 0, 0.5); /* Dark background with transparency */
+    opacity: 1; /* Full opacity for visibility */
+    transition: opacity 0.3s ease-in-out; /* Smooth opacity transition */
+}
+
+/* ✅ Apply grid layout to the .composer-buttons container */
+.composer-buttons {
+    display: grid; /* Enables grid layout */
+    grid-template-columns: repeat(3, 1fr); /* 3 buttons per row */
+    gap: 25px; /* Spacing between buttons */
+    padding: 30px; /* Space around the grid */
+    width: 80%; /* Keeps grid from stretching too wide */
+    margin: 0 auto; /* Centers the grid */
+    justify-content: center; /* Ensures buttons are evenly spread */
+}
+
+/* ✅ Style for each button */
+.composer-btn {
+    font-size: 22px; /* Bigger text */
+    font-weight: bold; /* Make text pop */
+    padding: 30px; /* More padding to make them fatter */
+    background-color: #ffffff; /* Soft white background */
+    color: rgb(0, 0, 0); /* Black text for contrast */
+    border: none;
+    border-radius: 25px; /* Rounded edges */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-align: center;
+    width: 100%; /* Make buttons fill grid cells */
+    height: 120px; /* Make buttons taller */
+    display: flex; /* Ensures text stays centered */
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    
+    /* ✨ Softer shadow style (removes inset and makes it subtle) */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), /* Light shadow */
+                0 8px 15px rgba(0, 0, 0, 0.15); /* Softer, spread-out shadow */
+}
+
+/* Hover effect */
+.composer-btn:hover {
+    background-color: #f0f0f0; /* Slightly darker on hover */
+    transform: translateY(-3px); /* Slight floating effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), /* More depth on hover */
+                0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Active (clicked) effect */
+.composer-btn:active {
+    transform: translateY(2px); /* Slight push effect */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ✅ Responsive Fix: 2 per row on tablets */
+@media (max-width: 768px) {
+    .composer-buttons {
+        grid-template-columns: repeat(2, 1fr); /* 2 buttons per row */
+        width: 90%;
+    }
+}
+
+/* ✅ Responsive Fix: 1 per row on small screens */
+@media (max-width: 480px) {
+    .composer-buttons {
+        grid-template-columns: repeat(1, 1fr); /* 1 button per row */
+        width: 100%;
+    }
+}
+
+
+.composer-sheet-list {
+    max-width: 50%; /* Or whatever fits your design */
+    margin: 0 auto; /* Ensures centering in case of layout issues */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically if necessary */
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    margin-top: 50px;
+    background-color: rgba(0, 0, 0, 0.5); /* Background color with 70% opacity */
+    opacity: 1; /* Full opacity for the text and other elements */
+}
+
+/* Style for the sheet music list inside the panel */
+.sheet-music-panel ul {
+    list-style: none; /* Remove bullets from list */
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Ensure the list spans the container */
+    display: flex;
+    align-items: center; /* Vertically center content */
+    text-align: center; /* Ensure text is centered */
+    background-size: cover; /* Ensure the background covers the entire area */
+    background-position: center; /* Center background image */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center list items horizontally */
+}
+
+/* Style for each individual list item (song) */
+.sheet-music-panel li {
+    width: 100%; /* List item spans full width */
+    text-align: center; /* Center text within the item */
+    opacity: 1; /* Full opacity for items */
+}
+
+/* Style for the links to sheet music */
+.sheet-music-panel a {
+    text-decoration: none; /* Remove underline from links */
+    color: #ffffff; /* White text color */
+    font-size: 16px; /* Font size */
+    padding: 10px 15px; /* Padding for the link */
+    display: block; /* Ensure each link takes a full block */
+    transition: background 0.8s ease-in-out; /* Smooth transition for hover effect */
+    border-radius: 5px; /* Optional rounded corners for the link */
+    margin: 5px 0; /* Spacing between list items */
+}
+
+/* Hover effect for the sheet music links */
+.sheet-music-panel a:hover {
+    color: #ff839e; /* Change text color on hover */
+    font-weight: bold; /* Make the text bold */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow for effect */
+}
+
+footer {
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000; /* Set a higher z-index value */
+}
+
+/* Style for the search container */
+.search-container {
+    display: flex;
+    color: #333;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Space between input and button */
+    margin: 30px 0; /* Adjust spacing as needed */
+}
+
+/* Style for the search input with a pluffy pink-white gradient */
+#pdf-search {
+    padding: 15px 25px; /* Bigger input box */
+    font-size: 18px; /* Larger text */
+    border-radius: 25px; /* Rounder corners */
+    border: 5px solid #ff839e; /* Thicker border for more pluffiness */
+    outline: none; /* Remove default outline */
+    width: 300px; /* Adjust width */
+    background: linear-gradient(145deg, #ffffff, #ffcfdc); /* Soft pink-to-white gradient */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow around the input */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus state for search input */
+#pdf-search:focus {
+    border-color: #ff5c8e; /* Focus color */
+    box-shadow: 0 0 10px rgba(255, 92, 142, 0.5); /* Glow effect on focus */
+}
+
+/* Style for the search button */
+.search-btn {
+    background: linear-gradient(135deg, #ffb6c1, #ff69b4); /* Soft pink gradient */
+    color: white;
+    border: none;
+    border-radius: 50px; /* Extra rounded */
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3); /* Soft glow */
+    transition: all 0.3s ease, transform 0.2s ease-in-out;
+    padding: 15px 20px; /* Larger padding */
+    font-size: 18px; /* Bigger text */
+}
+
+/* Hover effect for search button */
+.search-btn:hover {
+    background: linear-gradient(135deg, #ff69b4, #ff1493); /* Darker pink when hovered */
+    transform: scale(1.1); /* Slight bounce */
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5);
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+
+/* Style for the result list */
+#pdf-list {
+    margin-top: 20px;
+    padding: 0;
+    list-style-type: none;
+}
+
+#pdf-list li {
+    max-width: 50%; /* Or whatever fits your design */
+    margin: 0 auto; /* Ensures centering in case of layout issues */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically if necessary */
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    margin-top: 50px;
+    color:#ffffff;
+    background-color: rgba(0, 0, 0, 0.5); /* Background color with 70% opacity */
+    opacity: 1; /* Full opacity for the text and other elements */
+}
+
+/* Style for the song name */
+#pdf-list li span {
+    flex-grow: 1; /* Make the song name take up available space */
+    text-align: center; /* Center the song name */
+    margin: 5px;
+}
+
+.song-title, .brackets {
+    font-size: 20px; /* Makes the title and brackets the same size */
+    font-weight: bold;
+}
+
+.song-title {
+    display: inline-block;
+    margin-bottom: 5px; /* Tăng khoảng cách dưới tiêu đề */
+}
+
+.composer {
+    font-size: 0.9em; /* Slightly smaller than the title */
+    display: block; /* Đảm bảo xuống dòng */
+    margin-top: 5px; /* Điều chỉnh khoảng cách trên composer */
+}
+
+/* Style for the view and download buttons */
+.view-btn, .download-btn {
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; /* Space between the buttons */
+}
+
+.view-btn {
+    background-color: #4CAF50; /* Green */
+}
+
+.download-btn {
+    background-color: #008CBA; /* Blue */
+}
+
+/* Hover effects for view and download buttons */
+.view-btn:hover {
+    background-color: #45a049; /* Darker green */
+}
+
+.download-btn:hover {
+    background-color: #007bb5; /* Darker blue */
+}
+
+/* Pagination style */
+#pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#pagination button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #ffabc2;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#pagination button:hover {
+    background-color: #ff839e; /* Darker pink on hover */
+}

@@ -91,27 +91,29 @@ function loadGallery(songID, songTitle, composerName, videoID, images) {
     document.getElementById('video-frame-container').innerHTML = '';  // Clear previous content
     document.getElementById('video-frame-container').appendChild(videoFrame);
 
-    // Load the image gallery dynamically
-    const galleryContainer = document.getElementById('galleryContainer');
-    galleryContainer.innerHTML = ''; // Clear previous images
+ // Load the image gallery dynamically
+const galleryContainer = document.getElementById('galleryContainer');
+galleryContainer.innerHTML = ''; // Clear previous images
 
-    images.forEach((image, index) => {
-        // Create an anchor (`a`) tag for Lightbox
-        const link = document.createElement('a');
-        link.href = image;
-        link.setAttribute('data-lightbox', songID); // Group images under the same Lightbox gallery
-        link.setAttribute('data-title', `${songTitle} - Image ${index + 1}`); // Optional title for Lightbox
+images.forEach((image, index) => {
+    // Create an anchor (`a`) tag for Lightbox
+    const link = document.createElement('a');
+    link.href = image;
+    link.setAttribute('data-lightbox', songID); // Group images under the same Lightbox gallery
+    link.setAttribute('data-title', `${songTitle} - Image ${index + 1}`); // Optional title for Lightbox
 
-        // Create the image element
-        const img = document.createElement('img');
-        img.src = image;
-        img.alt = `${songTitle} Image`;
-        img.classList.add('gallery-image'); // You can style this class in CSS
+    // Create the image element
+    const img = document.createElement('img');
+    img.src = image;
+    img.alt = `${songTitle} Image`;
+    img.classList.add('gallery-image'); // You can style this class in CSS
 
-        // Append the image inside the link, and the link inside the gallery container
-        link.appendChild(img);
-        galleryContainer.appendChild(link);
-    });
+    // Append the image inside the link, and the link inside the gallery container
+    link.appendChild(img);
+    galleryContainer.appendChild(link);
+});
+
+
 
     document.addEventListener("DOMContentLoaded", function () {
     const galleryContainer = document.getElementById("galleryContainer");
@@ -120,14 +122,6 @@ function loadGallery(songID, songTitle, composerName, videoID, images) {
         console.error("Gallery container not found!");
         return;
     }
-
-    // Example images (replace with your actual image URLs)
-    const images = [
-        "image1.jpg",
-        "image2.jpg",
-        "image3.jpg",
-        "image4.jpg"
-    ];
 
     images.forEach((image, index) => {
         // Create an anchor (`a`) tag for Lightbox
@@ -148,7 +142,6 @@ function loadGallery(songID, songTitle, composerName, videoID, images) {
     });
 });
 
-
     // Ensure Lightbox initializes after dynamically adding images
     setTimeout(() => {
         lightbox.init();
@@ -158,7 +151,7 @@ function loadGallery(songID, songTitle, composerName, videoID, images) {
     // ✅ Show the gallery container and other elements
     document.getElementById("song-info").style.display = "block";  // Show song info container
     document.getElementById("pdfDownloadButton").style.display = "block";  // Show PDF button
-    galleryContainer.style.display = "block";  // Show the gallery
+    galleryContainer.style.display = "grid";  // Show the gallery
 
     // Set the PDF download button
     const pdfButton = document.getElementById('pdfDownloadButton');
@@ -184,100 +177,6 @@ toggleSheetMusic.addEventListener("click", function() {
     }
 });
 
-
-// Show sheet music list for a specific composer when their button is clicked
-const composerBtns = document.querySelectorAll(".composer-btn");
-composerBtns.forEach(btn => {
-    btn.addEventListener("click", function() {
-        const composerName = btn.getAttribute("data-composer");
-        
-        // Hide all composer lists
-        const allLists = document.querySelectorAll(".composer-sheet-list");
-        allLists.forEach(list => list.style.display = "none");
-        
-        // Show the selected composer's sheet list
-        const selectedList = document.getElementById(composerName);
-        if (selectedList) {
-            selectedList.style.display = "block";
-        }
-    });
+document.getElementById('closeButton').addEventListener('click', function() {
+    document.getElementById('songList').style.display = 'none';
 });
-
-//
-const pdfs = [
-    { name: '【 Fur Elise 】Beethoven', file: 'fur-elise.pdf' },
-    { name: '【 Mariage de Amour 】Paul de Senneville', file: 'mariage-d-amour.pdf' },
-    { name: '【 Toccata 】Paul Mauriat', file: 'toccata-paul-mauriat.pdf' },
-    { name: '【 Virus 】Beethoven', file: 'beethoven-virus.pdf' },
-    { name: '【 Moonlight Sonata: Op. 27 No. 2  - 1st 】Beethoven', file: 'opus-27-no-2-moonlight-sonata-1st-movement.pdf' },
-    { name: '【 Lacrimosa - Requiem 】Wolfgang Amadeus Mozart', file: 'lacrimosa-requiem.pdf' },
-    { name: '【 Passacaglia 】Handel Halvorsen', file: 'passacaglia.pdf' },
-    { name: '【 Tears On The Piano Keys 】Vladimir Stezers', file: 'tears-on-the-piano-key.pdf' },
-
-    // Add more song data here...
-];
-
-let currentPage = 1;
-const itemsPerPage = 3;
-
-function renderPage(page) {
-    const startIndex = (page - 1) * itemsPerPage;
-    const endIndex = page * itemsPerPage;
-    const songsToDisplay = pdfs.slice(startIndex, endIndex);
-
-    const list = document.getElementById("pdf-list");
-    list.innerHTML = '';
-
-    songsToDisplay.forEach(song => {
-        const match = song.name.match(/【(.*?)】(.*)/);
-        let formattedTitle = song.name;
-
-        if (match) {
-            const bracketedTitle = match[1]; // Extract title inside 【 】
-            const composer = match[2] ? match[2].trim() : ''; // Extract composer part
-            formattedTitle = `
-                <span class="brackets">【</span>
-                <span class="song-title">${bracketedTitle}</span>
-                <span class="brackets">】</span>
-                <br>
-                <span class="composer">${composer}</span>
-            `;
-        }        
-
-        const listItem = document.createElement("li");
-        listItem.innerHTML = `
-            <span>${formattedTitle}</span>
-            <a href="sheets/${song.file}" target="_blank" class="view-btn">View</a>
-            <a href="sheets/${song.file}" download class="download-btn">Download</a>
-        `;
-        list.appendChild(listItem);
-    });    
-
-    document.getElementById("prev-page").style.display = page > 1 ? 'inline' : 'none';
-    document.getElementById("next-page").style.display = endIndex < pdfs.length ? 'inline' : 'none';
-}
-
-function changePage(direction) {
-    if (direction === 'next' && currentPage * itemsPerPage < pdfs.length) {
-        currentPage++;
-    } else if (direction === 'prev' && currentPage > 1) {
-        currentPage--;
-    }
-    renderPage(currentPage);
-}
-
-function searchPDFs() {
-    // Simulating a search action, but you can filter `pdfs` based on user input
-    const searchTerm = document.getElementById("pdf-search").value.toLowerCase();
-    const filteredPdfs = pdfs.filter(pdf => pdf.name.toLowerCase().includes(searchTerm));
-
-    // Update the list with filtered results and reset the page number
-    pdfs.length = 0; // Clear original array
-    Array.prototype.push.apply(pdfs, filteredPdfs); // Push filtered PDFs into the array
-
-    currentPage = 1; // Reset to the first page after search
-    renderPage(currentPage);
-}
-
-// Initial render of the page with the first set of results
-renderPage(currentPage);

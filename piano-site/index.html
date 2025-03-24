@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano Light Painting</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lightbox.css">
+    <script src="lightbox-plus-jquery.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>My Piano Performances</h1>
+        </div>
+    </header>
+
+    <div class="logo-container">
+        <img src="logo-noBG.PNG" alt="Your Logo">
+    </div>
+
+    <!-- Performances & Close Buttons -->
+    <div class="button-container">
+        <button id="toggleButton" class="performances-btn">Performances</button>
+        <button id="closeButton" class="close-btn">Close</button>
+    </div>
+
+    <div id="intro" class="intro">
+        <h1>Welcome to the Hoai Ngoc Vo Website!</h1>
+        <p>Discover a unique blend of <span class="emoji">🎹✨</span></p>
+        <p><strong>Piano Sheets Library</strong> - Explore our curated collection of piano sheet music, perfect for musicians of all levels. From timeless classics to modern compositions, find your next musical masterpiece and elevate your skills.</p>
+        <p><strong>Light Painting Performances</strong> - Experience the magic of <span class="emoji">🎨</span> light painting in motion. Watch as sound and light come together to create stunning visual performances that are as captivating as the music itself.</p>
+        <p>Join us on a creative journey where music and art unite. Whether you’re looking for sheet music or an immersive performance, there's something here for every creative soul.</p>
+    </div>
+
+    <!-- Song List Dropdown -->
+    <div id="songList" class="panel">
+        <ul>
+            <li><a href="#" onclick="loadGallery('song1', 'Für Elise', 'Beethoven', 'EF28JOgAZr4', [
+            'images/song1-image1.jpg', 'images/song1-image2.jpg', 'images/song1-image3.jpg', 'images/song1-image4.jpg', 'images/song1-image5.jpg'
+            ])">Für Elise</a></li>
+
+            <li><a href="#" onclick="loadGallery('song2', 'Mariage d\'Amour', 'Paul de Senneville', 'JQ7fD92GEDo', [
+                'images/song2-image1.jpg', 'images/song2-image2.jpg', 'images/song2-image3.jpg', 'images/song2-image4.jpg', 'images/song2-image5.jpg'
+            ])">Mariage d'Amour</a></li>
+
+            <li><a href="#" onclick="loadGallery('song3', 'Toccata', 'Paul Mauriat', 'vOWgvDWijjM', [
+                'images/song3-image1.jpg', 'images/song3-image2.jpg', 'images/song3-image3.jpg', 'images/song3-image4.jpg', 'images/song3-image5.jpg'
+            ])">Toccata</a></li>
+        </ul>            
+    </div>
+
+    <!-- Song Info -->
+    <div id="song-info" style="display:none">
+        <h1 id="song-title">Song Title</h1>
+        <p id="composer-name">Composer Name</p>  
+    </div>
+
+    <div id="video-frame-container"></div>
+
+    <div id="galleryContainer" class="gallery-container" style="display: none;"></div> <!-- This container will be filled dynamically -->
+
+    <div class="sheet-music-main">
+        <a id="pdfDownloadButton" class="pdf-download" style="display: none;" href="#" download>Download Sheet Music</a>
+    </div>
+
+    <!-- Toggleable Sheet Music List -->
+    <button id="toggleSheetMusic" class="cute-sheet-music-btn">🎵 View By Composer 🎀</button>
+
+    
+    <!-- <div id="sheetMusicList" class="sheet-music-panel">
+        <ul>
+            <li><a href="sheets/song1.pdf" download>Song Title 1 - Composer 1</a></li>
+            <li><a href="sheets/song2.pdf" download>Song Title 2 - Composer 2</a></li>
+            <li><a href="sheets/song3.pdf" download>Song Title 3 - Composer 3</a></li>
+            <li><a href="sheets/song4.pdf" download>Song Title 4 - Composer 4</a></li>
+        </ul>
+    </div> -->
+    
+    <div id="composerButtons" class="composer-buttons" style="display: none;">
+        <button class="composer-btn" data-composer="Beethoven">Beethoven</button>
+        <button class="composer-btn" data-composer="Mozart">Mozart</button>
+        <button class="composer-btn" data-composer="Vladimir Stezers">Vladimir Stezers</button>
+    </div>
+    
+    <!-- Sheet Music List (Initially Hidden) -->
+    <div id="sheetMusicList" class="sheet-music-panel" style="display: none;">
+        <div id="Beethoven" class="composer-sheet-list" style="display: none;">
+            <ul>
+                <li><a href="sheets/beethoven-virus.pdf" download>【 Virus 】- Beethoven</a></li>
+                <li><a href="sheets/fur-elise.pdf" download>【 Fur Elise 】- Beethoven</a></li>
+            </ul>
+        </div>
+        <div id="Mozart" class="composer-sheet-list" style="display: none;">
+            <ul>
+                <li><a href="sheets/lacrimosa-requiem.pdf" download>【 Lacrimosa 】- Mozart</a></li>
+            </ul>
+        </div>
+        <div id="Vladimir Stezers" class="composer-sheet-list" style="display: none;">
+            <ul>
+                <li><a href="sheets/tears-on-the-piano-key.pdf" download>【 Tears On The Piano Keys 】- Vladimir Stezers</a></li>
+                <li><a href="sheets/ill-return-to-you-but-ill-be-different.pdf" download>【 I'll Return To You But I'll Be Differents 】- Vladimir Stezers</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="pdf-search" placeholder="Search for sheet music...">
+        <button onclick="searchPDFs()" class="search-btn">🔍</button>
+    </div>    
+    
+    <div id="search-results">
+        <ul id="pdf-list">
+            <!-- List items will be dynamically generated here -->
+            <li>
+                <span>Song 1</span>
+                <a href="sheets/beethoven-virus.pdf" target="_blank" class="view-btn">View</a>
+                <a href="sheets/beethoven-virus.pdf" download class="download-btn">Download</a>
+            </li>
+            <li>
+                <span>Song 2</span>
+                <a href="song2.pdf" target="_blank" class="view-btn">View</a>
+                <a href="song2.pdf" download class="download-btn">Download</a>
+            </li>
+            <li>
+                <span>Song 3</span>
+                <a href="song3.pdf" target="_blank" class="view-btn">View</a>
+                <a href="song3.pdf" download class="download-btn">Download</a>
+            </li>
+
+            <li>
+                <span>Song 4</span>
+                <a href="song3.pdf" target="_blank" class="view-btn">View</a>
+                <a href="song3.pdf" download class="download-btn">Download</a>
+            </li>
+            <!-- More list items... -->
+        </ul>
+    </div>
+    
+    <div id="pagination">
+        <button id="prev-page" onclick="changePage('prev')">Previous</button>
+        <button id="next-page" onclick="changePage('next')">Next</button>
+    </div>
+    
+    <!-- Space -->
+    <div class="space"></div>
+
+    <footer>
+        <p>&copy; 2024 Hoai Piano Website</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+    <script src="lightbox-plus-jquery.js"></script>
+
+</body>
+</html>
