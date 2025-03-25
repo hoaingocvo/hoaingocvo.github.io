@@ -6,7 +6,6 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
     background-size: cover;
     background-attachment: fixed;
     width: 100%;
@@ -58,16 +57,21 @@ header h1 {
 }
 
 #hero button {
-    background-color: #ff6600;
-    padding: 10px 20px;
-    border: none;
-    font-size: 1.2em;
+    background: rgba(255, 246, 255, 0.95); /* Soft parchment-like feel */
+    border: 3px solid #946bd5; /* Purple border */
+    padding: 15px 30px; /* Larger padding for a bigger button */
+    font-size: 1.5em; /* Bigger font size */
+    font-family: 'UnifrakturCook', serif;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 50px;
+    border-radius: 12px; /* Slightly more rounded corners */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
 }
 
 #hero button:hover {
-    background-color: #e65c00;
+    background: rgba(148, 107, 213, 0.2); /* Slightly darker background on hover */
+    border-color: #7f4aff; /* Darker purple border on hover */
+    transform: scale(1.1); /* Slight zoom effect on hover */
 }
 
 /* Performances Section */
@@ -171,12 +175,12 @@ header h1 {
     width: 100%;
     box-sizing: border-box; /* Prevents padding from affecting width */
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    border: 2px solid #f1a7c9; /* Soft border for a cute effect */
+    border: 2px solid #a29bf3; /* Soft purple border */
 }
 
 #songList ul li a:hover {
-    background-color: #f9c8d4; /* Light pink on hover */
-    color: #f58f91; /* Cute, warm color on hover */
+    background-color: #d7aef2; /* Light purple on hover */
+    color: #9b7ff7; /* Soft lavender on hover */
     transform: scale(1.05); /* Subtle zoom effect on hover */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft glow on hover */
 }
@@ -192,35 +196,6 @@ header h1 {
 /* Show it when a song is selected and gallery is displayed */
 #song-info, #pdfDownloadButton {
     display: block;
-}
-
-#closeButton {
-    position: absolute;
-    top: 10px; /* Distance from the top of the container */
-    right: 10px; /* Distance from the right of the container */
-    background-color: #808080; /* Grey background */
-    color: white; /* White text color */
-    border: none; /* Remove any border */
-    padding: 10px; /* Space inside the button */
-    font-size: 16px; /* Adjust font size */
-    font-weight: bold; /* Bold text */
-    cursor: pointer; /* Change cursor to indicate it's clickable */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-    width: 40px; /* Set width for square shape */
-    height: 40px; /* Set height for square shape */
-    text-align: center; /* Center the text inside */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#closeButton:hover {
-    background-color: #666666; /* Darker grey on hover */
-}
-
-
-#closeButton:hover {
-    background-color: #666666; /* Darker grey when hovered */
 }
 
 
@@ -359,6 +334,33 @@ width: 100%;
 #sheetMusicList ul li a:hover {
     color: #007bff;
 }
+
+.project-intro {
+    background: url(images/DSCF0738.jpg);
+    background-size: cover;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1rem;
+}
+
+.intro-window {
+    max-width: 650px;
+    background: rgba(255, 250, 240, 0.95); /* Soft parchment-like feel */
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 2px solid #a29bf3; /* Soft purple border */
+}
+
+.intro-window h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #9b7ff7; /* Soft lavender for the text */
+}
+
 
 footer {
     font-size: 1.2em;
