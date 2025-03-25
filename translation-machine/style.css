@@ -25,7 +25,7 @@ header {
 
 header h1 {
     margin: 0;
-    font-size: 2.5em;
+    font-size: 1.2em;
 }
 
 /* Hero Section */
@@ -73,6 +73,7 @@ header h1 {
 /* Performances Section */
 #performances {
     padding: 40px 20px;
+    background: url(bg6.jpg);
     background-color: white;
     text-align: center;
     align-items: center;
@@ -115,6 +116,15 @@ header h1 {
 
 .performance-item p {
     font-size: 1.2em;
+}
+
+.performance-item video,
+.performance-item iframe {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
 }
 
 /* Song List Panel (Initially Hidden) */
@@ -215,6 +225,7 @@ header h1 {
 
 
 .sheet-music-panel {
+    opacity: 50%;
     display: none;
 }
 
@@ -226,22 +237,23 @@ header h1 {
 }
 
 #song-title {
-    font-size: 24px;
+    font-size: 2.5em;
     margin-bottom: 5px;
 }
 
 #composer-name {
-    font-size: 18px;
-    color: #555;
+    font-size: 1.2em;
+    color: #353535;
 }
 
 
 /* Center the video container */
 #video-frame-container {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #video-frame-container iframe {
@@ -270,7 +282,7 @@ width: 100%;
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 0px auto;
     padding: 20px;
 }
 
@@ -303,7 +315,8 @@ width: 100%;
 
 #pdfDownloadButton {
     display: block; /* Block display ensures no stretch */
-    max-width: 300px; /* Controls the width */
+    max-width: 400px; /* Controls the width */
+    text-decoration: none;
     margin: 0 auto; /* Centers the button horizontally */
     padding: 12px 20px;
     background-color: #4CAF50;
@@ -313,6 +326,7 @@ width: 100%;
     font-weight: bold;
     transition: background 0.3s ease;
     text-align: center; /* Center text inside the button */
+    margin-bottom: 20px;
 }
 
 .pdf-download:hover {
@@ -321,7 +335,7 @@ width: 100%;
 
 /* Sheet Music Section */
 #sheet-music {
-    padding: 40px 20px;
+    padding: 10px 20px;
     background-color: #f4f4f4;
     text-align: center;
 }
@@ -329,18 +343,6 @@ width: 100%;
 #sheet-music h2 {
     font-size: 2.2em;
     margin-bottom: 20px;
-}
-
-.cute-sheet-music-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-}
-
-.cute-sheet-music-btn:hover {
-    background-color: #0056b3;
 }
 
 #sheetMusicList ul {
@@ -359,7 +361,8 @@ width: 100%;
 }
 
 footer {
-    background-color: #333;
+    font-size: 1.2em;
+    background-color: #000000;
     color: white;
     text-align: center;
     padding: 20px;

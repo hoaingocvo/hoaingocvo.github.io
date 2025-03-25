@@ -29,9 +29,10 @@
 <!-- Close Button Inside the Song List Panel -->
 <div id="songList" class="panel">
     <ul>
-        <li><a href="#" onclick="loadGallery('song1', 'Für Elise', 'Beethoven', 'EF28JOgAZr4', ['images/song1-image1.jpg', 'images/song1-image2.jpg', 'images/song1-image3.jpg', 'images/song1-image4.jpg', 'images/song1-image5.jpg'])">Fur Elise</a></li>
+        <li><a href="#" onclick="loadGallery('song1', 'Fur Elise', 'Ludwig van Beethoven', 'EF28JOgAZr4', ['images/song1-image1.jpg', 'images/song1-image2.jpg', 'images/song1-image3.jpg', 'images/song1-image4.jpg', 'images/song1-image5.jpg'])">Fur Elise</a></li>
         <li><a href="#" onclick="loadGallery('song2', 'Mariage d\'Amour', 'Paul de Senneville', 'JQ7fD92GEDo', ['images/song2-image1.jpg', 'images/song2-image2.jpg', 'images/song2-image3.jpg', 'images/song2-image4.jpg', 'images/song2-image5.jpg'])">Mariage d'Amour</a></li>
         <li><a href="#" onclick="loadGallery('song3', 'Toccata', 'Paul Mauriat', 'vOWgvDWijjM', ['images/song3-image1.jpg', 'images/song3-image2.jpg', 'images/song3-image3.jpg', 'images/song3-image4.jpg', 'images/song3-image5.jpg'])">Toccata</a></li>
+        <li><a href="#" onclick="loadGallery('song4', 'Experimentation', 'Hoai Ngoc Vo', null, ['images/DSCF0711.jpg', 'images/DSCF0718.jpg', 'images/DSCF0735.jpg',])">Experimentation</a></li>
     </ul>            
 </div>
 
@@ -55,17 +56,29 @@
         <h2>Featured Performances</h2>
         <div class="performance-grid">
             <div class="performance-item" data-song-id="song1">
-                <video src="performance1.mp4" controls></video>
+        <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/EF28JOgAZr4" 
+                frameborder="0" 
+                allowfullscreen>
+        </iframe>
                 <h3>Fur Elise</h3>
-                <p>By Beethoven</p>
+                <p>By Ludwig van Beethoven</p>
             </div>
             <div class="performance-item" data-song-id="song2">
-                <video src="performance2.mp4" controls></video>
+                <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/JQ7fD92GEDo" 
+                frameborder="0" 
+                allowfullscreen>
+                </iframe>
                 <h3>Mariage d'Amour</h3>
                 <p>By Paul de Senneville</p>
             </div>
             <div class="performance-item" data-song-id="song3">
-                <video src="performance3.mp4" controls></video>
+                <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/vOWgvDWijjM" 
+                frameborder="0" 
+                allowfullscreen>
+                </iframe>
                 <h3>Toccata</h3>
                 <p>By Paul Mauriat</p>
             </div>
@@ -78,22 +91,9 @@
         <div id="galleryContainer" class="gallery-container"></div>
     </section>
 
-    <!-- Sheet Music Section -->
-    <section id="sheet-music">
-        <h2>Explore Our Piano Sheet Music</h2>
-
-        <div id="sheetMusicList" class="sheet-music-panel">
-            <ul>
-                <li><a href="sheets/fur-elise.pdf" download>Fur Elise - Beethoven</a></li>
-                <li><a href="sheets/mariage-damour.pdf" download>Mariage d'Amour - Paul de Senneville</a></li>
-                <li><a href="sheets/toccata.pdf" download>Toccata - Paul Mauriat</a></li>
-            </ul>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Hoai Piano Website</p>
+        <p>&copy; 2025 Hoai - Painted Melody</p>
     </footer>
 
     <script src="script.js" defer></script>

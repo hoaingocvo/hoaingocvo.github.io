@@ -10,48 +10,15 @@ document.addEventListener("DOMContentLoaded", function() {
     const galleryContainer = document.getElementById("galleryContainer");
     const introPage = document.getElementById("intro");
 
-    // Song List (example)
-    const songs = [
-        {
-            songID: 'song1',
-            songTitle: 'Song Title 1',
-            composerName: 'Composer 1',
-            videoID: 'videoID1',
-            images: ['images/song1-image1.jpg', 'images/song1-image2.jpg'],
-        },
-        {
-            songID: 'song2',
-            songTitle: 'Song Title 2',
-            composerName: 'Composer 2',
-            videoID: 'videoID2',
-            images: ['images/song2-image1.jpg', 'images/song2-image2.jpg'],
-        },
-        {
-            songID: 'song3',
-            songTitle: 'Song Title 2',
-            composerName: 'Composer 2',
-            videoID: 'videoID2',
-            images: ['images/song2-image1.jpg', 'images/song2-image2.jpg'],
-        },
-
-    ];
 
     // Toggle song list visibility for "Performances" button
     toggleButton.addEventListener("click", function() {
-        songList.style.display = (songList.style.display === "block") ? "none" : "block";
-    });
+        if (songList.style.display === "none" || songList.style.display === "") {
+            songList.style.display = "block"; // ✅ Show the song list
+        } else {
+            songList.style.display = "none"; // Hide if it's already open
+        }    });
 
-    // Close button functionality - Hide both buttons and everything else
-    closeButton.addEventListener("click", function() {
-        buttonContainer.style.display = "none"; 
-        songList.style.display = "none";
-        songInfo.style.display = "none";
-        pdfDownloadButton.style.display = "none";
-        videoFrameContainer.style.display = "none";
-        galleryContainer.style.display = "none";
-        introPage.style.display = "flex"; // Ensure intro page is visible
-        introPage.style.opacity = "1"; // Set opacity to 1
-    });
 
     // Dynamically load gallery when a song is clicked
     songList.addEventListener("click", function(e) {
@@ -83,17 +50,26 @@ function loadGallery(songID, songTitle, composerName, videoID, images) {
     document.getElementById('song-title').textContent = songTitle;
     document.getElementById('composer-name').textContent = composerName;
 
-    // Load the video
-    const videoFrame = document.createElement('iframe');
-    videoFrame.src = `https://www.youtube.com/embed/${videoID}`;
-    videoFrame.width = '80%';
-    videoFrame.height = '500px';
-    document.getElementById('video-frame-container').innerHTML = '';  // Clear previous content
-    document.getElementById('video-frame-container').appendChild(videoFrame);
+    // Handle video section
+    let videoContainer = document.getElementById("video-frame-container");
+    videoContainer.innerHTML = ''; // Clear previous content
+    
+
+    if (videoID) {
+        const videoFrame = document.createElement('iframe');
+        videoFrame.src = `https://www.youtube.com/embed/${videoID}`;
+        videoFrame.width = '80%';
+        videoFrame.height = '500px';
+        videoContainer.appendChild(videoFrame);
+        videoContainer.style.display = "flex"; // Show video
+    } else {
+        videoContainer.style.display = "none"; // Hide video if no ID is given
+    }
 
  // Load the image gallery dynamically
 const galleryContainer = document.getElementById('galleryContainer');
 galleryContainer.innerHTML = ''; // Clear previous images
+
 
 images.forEach((image, index) => {
     // Create an anchor (`a`) tag for Lightbox
@@ -152,6 +128,8 @@ images.forEach((image, index) => {
     document.getElementById("song-info").style.display = "block";  // Show song info container
     document.getElementById("pdfDownloadButton").style.display = "block";  // Show PDF button
     galleryContainer.style.display = "grid";  // Show the gallery
+    document.getElementById('songList').style.display = 'none';
+
 
     // Set the PDF download button
     const pdfButton = document.getElementById('pdfDownloadButton');
@@ -177,6 +155,3 @@ toggleSheetMusic.addEventListener("click", function() {
     }
 });
 
-document.getElementById('closeButton').addEventListener('click', function() {
-    document.getElementById('songList').style.display = 'none';
-});
